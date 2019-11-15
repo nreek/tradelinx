@@ -1,0 +1,131 @@
+.login-container {
+  display: flex;
+  & > div {
+    width: 50%;
+    height: 100vh;
+    @media screen and (max-width: $medium-screen-width) {
+      width: 0px;
+    }
+  }
+  .login-ui {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @media screen and (max-width: $medium-screen-width) {
+      width: 100%;
+    }
+    & > * {
+      width: 300px;
+      margin: 0 auto;
+    }
+    .logo {
+      padding: 20px 40px;
+      object-fit: contain;
+    }
+    .links-container {
+      @include flex(center, space-evenly);
+      padding-top: 10px;
+      .sign-up-link {
+        @include themify($themes) {
+          color: themed('buttonColor');
+        }
+        &:hover {
+          opacity: 0.65;
+        }
+      }
+      a {
+        @media screen and (max-width: $medium-screen-width) {
+          font-size: 16px;
+        }
+      }
+    }
+    .password-reset-input-instructions,
+    .form-instructions {
+      @extend p;
+      margin: 0 auto;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+    .error {
+      @include themify($themes) {
+        color: themed('negativeColor');
+      }
+    }
+    .submit-button {
+      @media screen and (max-width: $medium-screen-width) {
+        font-size: 16px;
+      }
+    }
+  }
+  form {
+    .field-label {
+      display: none;
+    }
+    .field-content {
+      position: relative;
+      width: 100%;
+      margin-bottom: 20px;
+      &::after {
+        position: absolute;
+        font-family: $font-awesome;
+        font-weight: $bold;
+        font-size: 12px;
+        left: 15px;
+        @include vertical-align(center);
+        @include themify($themes) {
+          color: themed('textColor');
+        }
+      }
+      input {
+        padding: 7px;
+        padding-left: 40px;
+        width: 100%;
+        @media screen and (max-width: $medium-screen-width) {
+          font-size: 16px;
+        }
+      }
+      .form-icon-container {
+        position: absolute;
+        right: 5px;
+        top: -14px;
+        @include themify($themes) {
+          color: themed('negativeColor');
+        }
+      }
+    }
+    .email .field-content::after {
+      content: '\f0e0';
+    }
+    .password .field-content,
+    .code .field-content,
+    .new-password .field-content,
+    .confirm-password .field-content {
+      &::after {
+        content: '\f30d';
+      }
+      .hide-show-password i {
+        position: absolute;
+        right: -16px;
+        @include vertical-align(center);
+      }
+    }
+    .verification-code .field-content::after,
+    .code .field-content::after {
+      content: '\f502';
+    }
+    input[type='submit'] {
+      @extend button.button;
+    }
+    button.button,
+    input[type='submit'] {
+      width: 100%;
+      padding: 7px;
+      margin: 15px 0px;
+    }
+  }
+  .login-banner {
+    background-image: url('../images/login-banner.png');
+    background-size: cover;
+    background-position: center center;
+  }
+}

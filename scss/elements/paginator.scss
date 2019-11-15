@@ -1,0 +1,45 @@
+// Paginator
+// *********
+.paginator {
+  display: grid;
+  grid-template-columns: repeat(7, 25px);
+  grid-template-areas: 'left-ext min-two min-one center plus-one plus-two right-ext';
+  justify-content: right;
+  span {
+    align-self: center;
+    justify-self: center;
+    cursor: pointer;
+    user-select: none;
+  }
+  .active {
+    color: $paginator-active-font-color;
+    font-weight: $bold;
+  }
+  .paginator-left-ext {
+    grid-area: left-ext;
+  }
+  .paginator-right-ext {
+    grid-area: right-ext;
+  }
+  .paginator-num {
+    &.pos--2 {
+      grid-area: min-two;
+      opacity: 0.5;
+    }
+    &.pos--1 {
+      grid-area: min-one;
+      opacity: 0.75;
+    }
+    &.pos-0 {
+      grid-area: center;
+    }
+    &.pos-1 {
+      grid-area: plus-one;
+      opacity: 0.75;
+    }
+    &.pos-2 {
+      grid-area: plus-two;
+      opacity: 0.5;
+    }
+  }
+}

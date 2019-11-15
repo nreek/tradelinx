@@ -1,0 +1,80 @@
+.order-book.component {
+  .order-book-layers {
+    & > div {
+      padding: 0px 20px;
+    }
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    padding-bottom: 20px;
+    @media screen and (max-width: $medium-screen-width) {
+      padding-bottom: 0px;
+    }
+    .order-book-bids,
+    .order-book-asks {
+      flex-direction: column;
+      overflow-y: auto;
+      flex: 1;
+      display: flex;
+      & .ps__rail-y {
+        z-index: 1;
+        visibility: hidden;
+      }
+    }
+    .order-book-bids .order-book-rows {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+    .order-book-header,
+    .order-book-center,
+    .order-book-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      justify-items: center;
+      font-size: 10px;
+      font-weight: $regular;
+      text-transform: uppercase;
+    }
+    .order-book-center,
+    .order-book-header {
+      padding: 10px 20px;
+      .order-book-spread,
+      .order-book-midprice {
+        & > span {
+          padding: 0px 5px;
+        }
+      }
+    }
+    .order-book-row {
+      position: relative;
+      font-weight: $light;
+      padding: 5px;
+      .order-book-row-volume-bar {
+        position: absolute;
+        height: 100%;
+        left: 0;
+        transition: 0.1s all;
+        transition-timing-function: ease-in-out;
+      }
+    }
+    @include themify($themes) {
+      .order-book-row:nth-of-type(odd) {
+        background: themed('alternateRowColor');
+      }
+      .order-book-bids {
+        border-top: 1px solid (themed('separatorColorDark'));
+        border-bottom: 1px solid (themed('separatorColorDark'));
+        .order-book-row-volume-bar {
+          background: rgba(themed('positiveColor'), 0.3);
+        }
+      }
+      .order-book-asks {
+        border-top: 1px solid (themed('separatorColorDark'));
+        border-bottom: 1px solid (themed('separatorColorDark'));
+        .order-book-row-volume-bar {
+          background: rgba(themed('negativeColor'), 0.3);
+        }
+      }
+    }
+  }
+}

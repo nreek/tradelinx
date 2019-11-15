@@ -1,0 +1,49 @@
+.standard-ui-nav {
+  @include themify($themes) {
+    background: themed('navBackgroundColor');
+  }
+  box-shadow: 5px 5px 10px 0 rgba(0,0,0,0.25);
+
+  .logo-container {
+    height: 100px;
+    width: 100px;
+    @include flex(center, center);
+    border-bottom: 2px solid;
+    @include themify($themes) {
+      border-color: themed('separatorColorDark');
+    }
+    img {
+      height: 60px;
+      width: 60px;
+    }
+  }
+
+  .nav-links {
+    @include flex(center, flex-start, column);
+    padding: 45px 15px;
+    flex: 1;
+    .nav-link {
+      padding: 15px;
+      margin: 5px 0px;
+      text-align: center;
+      a {
+        font-size: 18px;
+        @include themify($themes) {
+          color: themed('navIconInactiveColor');
+          opacity: 0.45;
+        }
+        &:hover {
+          opacity: 1;
+        }
+        padding: 5px;
+        &.active {
+          @include themify($themes) {
+            color: themed('navIconActiveColor');
+            opacity: 1;
+          }
+          cursor: default;
+        }
+      }
+    }
+  }
+}

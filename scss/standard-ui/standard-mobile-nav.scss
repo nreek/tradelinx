@@ -1,0 +1,135 @@
+.standard-ui-mobile-nav {
+  @include themify($themes) {
+    background: themed('backgroundColor');
+  }
+  bottom: 0;
+  position: fixed;
+  right: 0;
+  width: 100%;
+  transition: .5s ease;
+  .dot-container {
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    @include themify($themes) {
+      background-color: themed('componentBackgroundColor');
+    }
+    border-top: 1px solid;
+    @include themify($themes) {
+      border-color: themed('separatorColorDark');
+    }
+    .dots{
+      align-self: flex-end;
+    }
+    .tab-dots,
+    .tab-dot-selected {
+      margin: 5px;
+      display: inline-block;
+      height: 7px;
+      width: 7px;
+      border-radius: 50%;
+      transition: .5s ease;
+      cursor: pointer;
+      @include themify($themes) {
+        background-color: themed('tabDotSelected');
+      }
+    }
+    .tab-dot-selected {
+      @include themify($themes) {
+        background-color: themed('inputBorderColor');
+      }
+    }
+    .side-arrow-right,
+    .side-arrow-left {
+      @include themify($themes) {
+        color: themed('inputBorderColor');
+      }
+      opacity: 0;
+      transition: .5s ease;
+      display: inline-block;
+      i {
+        cursor: pointer;
+        font-size: 20px;
+      }
+    }
+
+    &:hover {
+      height: 40px;
+      .tab-dots,
+      .tab-dot-selected {
+        margin: 12px;
+        height: 15px;
+        width: 15px;
+      }
+      .side-arrow-right,
+      .side-arrow-left {
+        margin: 10px;
+        opacity: 1;
+        align-self: flex-end;
+      }
+    }
+  }
+
+  .nav-links {
+    @include flex(center, center, row);
+    flex: 1;
+    .nav-link {
+      padding: 0px 12px;
+      text-align: center;
+      svg {
+        height: 45px;
+        width: 45px;
+      }
+      .trade-green {
+        display: none;
+      }
+      a {
+        @include flex(center, flex-start, column);
+        font-size: 8px;
+        text-transform: uppercase;
+        i {
+          font-size: 22px;
+          padding-bottom: 5px;
+        }
+        @include themify($themes) {
+          color: $light-dark-color-1;
+          opacity: 0.45;
+        }
+        &:hover {
+          opacity: 1;
+          svg {
+            fill: $light-dark-color-1;
+          }
+        }
+        padding: 2px 5px;
+        &.active {
+          svg {
+            @include themify($themes) {
+              fill: themed('navIconActiveColor');
+            }
+          }
+          @include themify($themes) {
+            color: themed('navIconActiveColor');
+            opacity: 1;
+          }
+          cursor: default;
+        }
+      }
+    }
+  }
+}
+
+
+
+.mobile-logout {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 12px 10px;
+  font-size: 20px;
+  z-index: 6;
+  cursor: pointer;
+  @include themify($themes) {
+    color: themed('componentHeaderTextColor');
+  }
+}

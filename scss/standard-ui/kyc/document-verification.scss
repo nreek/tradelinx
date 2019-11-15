@@ -1,0 +1,60 @@
+.document-verification.component {
+  .document-upload-section {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+      'icon title'
+      'icon subtitle'
+      'icon upload';
+    align-items: center;
+    height: 100px;
+    padding: 20px 40px;
+    &:not(:last-of-type) {
+      border-bottom: 1px solid;
+      @include themify($themes) {
+        border-color: themed('separatorColorDark');
+      }
+    }
+    .document-icon {
+      grid-area: icon;
+      font-size: 40px;
+    }
+    h2 {
+      text-transform: uppercase;
+      grid-area: title;
+    }
+    p {
+      grid-area: subtitle;
+    }
+    .document-upload {
+      grid-area: upload;
+      @include flex(center, flex-start);
+      &>* {
+        font-size: 10px;
+        margin-right: 5px;
+      }
+      h4 {
+        text-transform: uppercase;
+      }
+      button.file-upload {
+        @extend .secondary-button;
+        background-color: transparent;
+        box-shadow: none;
+      }
+      .download-button {
+        cursor: pointer;
+        height: 11px;
+      }
+      .file-ready {
+        .file-upload-cancel-button {
+          @extend a;
+        }
+        button.file-upload-update-button {
+          margin-left: 10px;
+          padding: 3px;
+        }
+      }
+    }
+  }
+}

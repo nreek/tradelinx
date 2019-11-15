@@ -1,0 +1,40 @@
+@import './deposit-withdraw/deposit-crypto.scss';
+@import './deposit-withdraw/withdraw-crypto.scss';
+@import './deposit-withdraw/deposit-fiat.scss';
+@import './deposit-withdraw/withdraw-fiat.scss';
+
+.deposit-withdraw.component {
+  .component-content {
+    display: flex;
+    flex-direction: column;
+    & > div {
+      padding: 15px 20px;      
+      @media screen and (max-width: $medium-screen-width) {
+        padding: 0px;
+      }
+      &:nth-child(2) {
+        flex: 1;
+      }
+    }
+    .action-selectors {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid;
+      height: 60px;
+      @media screen and (max-width: $medium-screen-width) {
+        padding-left: 20px;
+      }
+      @include themify($themes) {
+        border-color: themed('separatorColorDark');
+      }
+      .action-selector {
+        font-size: 10px;
+        font-weight: $bold;
+        text-transform: uppercase;
+        &:not(:last-of-type) {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}

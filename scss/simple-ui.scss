@@ -1,0 +1,2081 @@
+
+// Responsive Breakpoints
+$xsmall-min-width: 415px;
+$small-min-width: 687px;
+$medium-min-width: 795px;
+
+
+
+
+.simple-ui-container {
+  @import 'reset.scss';
+  @import 'simple-theme.scss';
+
+  @import './elements/modal';
+  @import './elements/paginator';
+  @import './elements/component';
+  @import './elements/table';
+
+  p {
+    margin-bottom: 30px;
+  }
+  background: $simple-ui-bg;
+  min-height: 100vh;
+  font-family: Lato,sans-serif;
+  font-weight: 400;
+  font-size: 95%;
+
+  .simple-ui {
+    a, p, button, .button {
+      font-size: 100%;
+    }
+    p {
+      color: $light-color-3;
+      line-height: 1.4em;
+    }
+    a {
+      color: $light-color-1;
+    }
+    .button {
+      background: $button-bg-color;
+      color: $light-color-1;
+      border: none;
+      border-radius: 40px;
+      padding: 9px 30px;
+      font-size: 100%;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: .3s;
+      outline: none;
+    }
+    h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+    display: flex;
+    max-width: 1000px;
+    min-height: 100vh;
+    margin: 0 auto;
+    .settings-content {
+      select option {
+        background: $setting-select-option-bg;
+        color: $settings-select-option-color;
+      }
+    }
+    .home,
+    .settings {
+      display: initial;
+      grid-template-columns: auto;
+      grid-template-rows: auto;
+      grid-template-areas: initial;
+      grid-gap: 0;
+      margin: 0;
+    }
+  }
+
+  .main-container {
+    background-image: $simple-ui-main-bg;
+    width: 100%;
+    color: $simple-ui-font-color;
+
+    .header {
+      height: 60px;
+      display: flex;
+      width: 100%;
+      color: $simple-ui-header-font-color;
+
+      .fa-caret-down,
+      .fa-caret-up {
+        margin-left: 10px;
+      }
+
+      div {
+        float: right;
+        margin: 30px 0px;
+        width: 100%;
+        text-align: right;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        &.header-hamburger-button {
+          justify-content: flex-start;
+          margin-left: 35px;
+          width: 50px;
+          display: none;
+          @media screen and (max-width: 1000px) {
+            display: flex;
+          }
+        }
+        &.market-value {
+          justify-content: flex-start;
+          margin-left: 35px;
+          @media screen and (max-width: 1000px) {
+            display: none;
+          }
+        }
+      }
+      span,
+      a {
+        margin-right: 30px;
+        color: $simple-ui-header-link-color;
+        font-weight: 300;
+      }
+      a {
+        cursor: pointer;
+        &:hover {
+          color: $simple-ui-header-link-hover-color;
+        }
+      }
+
+      .user-dropdown-container {
+        background-color: $simple-ui-header-user-dropdown-bg;
+        width: 150px;
+
+        color: $simple-ui-header-user-dropdown-text-color;
+        position: absolute;
+        margin-top: 5px;
+        border-radius: 5px;
+        display: block;
+        padding: 30px;
+        a {
+          color: $simple-ui-header-user-dropdown-link-color;
+          font-weight: 500;
+          margin-right: 0px;
+          display: block;
+          text-align: left;
+          i {
+            margin-right: 10px;
+          }
+        }
+      }
+
+      .hamburger {
+        display: none;
+        font-size: 24px;
+        cursor: pointer;
+        transition: 0.25s all;
+        &.active {
+          color: $simple-ui-hamburger-active-color;
+        }
+        @media screen and (max-width: 1000px) {
+          display: initial;
+          position: absolute;
+          z-index: 10;
+          left: 25px;
+        }
+      }
+    }
+
+    .content-container {
+      margin: 5px 35px 0 35px;
+      .content {
+        margin-top: 40px;
+        .description {
+          margin-bottom: 40px;
+        }
+      }
+    }
+
+    .modal-content {
+      text-align: left;
+      h2,
+      h3,
+      p {
+        color: $simple-ui-modal-font-color;
+      }
+      h2 {
+        margin-bottom: 40px;
+      }
+      h3 {
+        margin: 20px 0px;
+      }
+      p {
+        margin: 10px 0px;
+      }
+      .verify-error {
+        color: $error-color;
+      }
+      .verfication-pending {
+        a {
+          color: $simple-ui-kyc-verification-pending-link;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .sell-selector.active .select-indicator{
+      background-color: #FF5391 !important;
+    }
+
+    .sell{
+      .amount-container, .field-content input, .quantity-container{
+        border-color: #FF5391 !important;
+      }
+
+      .button, .quantity-container{
+        background-color: #FF5391 !important;
+      }
+    }
+
+    &.home {
+      .item {
+        margin-bottom: 60px;
+        h4 {
+          margin-bottom: 35px;
+          font-size: 100%;
+        }
+        .item-container {
+          width: 100%;
+          display: flex;
+          .icon {
+            width: 25%;
+            position: relative;
+            margin: 0 auto;
+            .icon-inner {
+              position: absolute;
+              text-align: center;
+              width: 100%;
+              top: 0;
+              left: 50%;
+              transform: translateX(-50%);
+
+              svg *{
+                stroke: $light-blue;
+              }
+            }
+          }
+          .button {
+            margin-top: 30px;
+          }
+          .item-content {
+            width: 50%;
+            margin: 0 50px;
+          }
+          .check {
+            width: 25%;
+            position: relative;
+            .check-inner {
+              position: absolute;
+              width: 45%;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              svg {
+                fill: $simple-ui-check-svg-color;
+              }
+            }
+          }
+          @media screen and (max-width: 500px) {
+            position: relative;
+            .icon {
+              display: none;
+            }
+            .item-content {
+              width: 100%;
+              margin: 0;
+            }
+          }
+        }
+      }
+      .kyc-form {
+        width: 100%;
+        margin-top: 2em;
+        .kyc-form-fields {
+          .given-name,
+          .surname,
+          .country,
+          .city,
+          .document {
+            width: 36%;
+          }
+          .state-province,
+          .middle-name,
+          .postal-code {
+            width: 28%;
+          }
+          .phone-number,
+          .date-of-birth
+          {
+            width: 50%;
+          }
+          .given-name{
+            order: 1;
+            -webkit-order: 1;
+          }
+          .middle-name {
+            order: 2;
+            -webkit-order: 2;
+          }
+          .surname {
+            order: 3;
+            -webkit-order: 3;
+          }
+          .date-of-birth {
+            order: 4;
+            -webkit-order: 4;
+            .react-datepicker-wrapper,
+            .react-datepicker__input-container,
+            .date-picker {
+              width: 99%;
+              margin: 0px 5px 0px 0px;
+            }
+          }
+          .phone-number {
+            order: 5;
+            -webkit-order: 5;
+          }
+          .country {
+            order: 6;
+            -webkit-order: 6;
+            select {
+              width: 265%;
+            }
+          }
+          .state-province {
+            order: 7;
+            -webkit-order: 7;
+          }
+          .city {
+            order: 8;
+            -webkit-order: 8;
+          }
+
+          .street-address {
+            order: 9;
+            -webkit-order: 9;
+            width: 72%;
+          }
+          .postal-code {
+            order: 10;
+            -webkit-order: 10;
+          }
+          .document {
+            order: 11;
+            -webkit-order: 11;
+            .file-upload {
+              width: 100%;
+            }
+          }
+        }
+        .field-content {
+          .form-icon-container {
+            margin-right: 0%;
+          }
+        }
+        .field-content-disabled {
+          input {
+            border-color: $simple-ui-kyc-input-border;
+          }
+        }
+        .document-download-label {
+          color: $simple-ui-kyc-download-label;
+          font-size: 13px;
+          margin: 10px 0;
+          margin-left: 5px;
+        }
+        .document-download {
+          color: $simple-ui-kyc-download-text-color;
+          display: flex;
+          height: 35px;
+          .file-name {
+            width: calc(100% - 7% - 5px);
+            border: 1px solid $simple-ui-kyc-file-name-input-border;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            padding-left: 10px;
+            margin-left: 5px;
+            padding-top: 8px;
+          }
+          .download-button {
+            color: $simple-ui-kyc-download-button;
+            width: 7%;
+            background: $simple-ui-kyc-download-button-bg;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            cursor: pointer;
+            position: relative;
+            &:hover {
+              background: $simple-ui-kyc-download-button-bg-hover;
+            }
+            .icon-container {
+              position: absolute;
+              top: 48%;
+              left: 48%;
+              transform: translate(-50%, -50%);
+            }
+          }
+        }
+      }
+    }
+
+    &.buy-sell {
+      .ui-controls {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 30px;
+        .buy-sell-selector {
+          display: flex;
+          text-transform: uppercase;
+          color: $simple-ui-buy-sell-selector-text;
+          font-size: 125%;
+          .option {
+            margin-right: 40px;
+            cursor: pointer;
+            &.active {
+              color: $simple-ui-buy-sell-selector-active-tab;
+              font-weight: $regular;
+              .select-indicator {
+                width: 100%;
+                height: 3px;
+                background-color: $simple-ui-buy-sell-selector-active-tab-bg;
+                margin-top: 8px;
+              }
+            }
+          }
+        }
+        .pair.select {
+          .field-label {
+            display: none;
+          }
+          width: 150px;
+        }
+      }
+
+      .buy-sell-option-container {
+        display: flex;
+        margin: 0 -10px;
+        .buy-sell-option {
+          width: 25%;
+          margin: 10px;
+          text-align: center;
+
+          .quantity-container {
+            border: 3px solid $simple-ui-buy-sell-quantity-border-color;
+            border-radius: 20px 20px 0 0;
+            background: $simple-ui-buy-sell-quantity-bg;
+            padding: 7px 0;
+            font-weight: $regular;
+            @media screen and (max-width: $small-min-width) {
+              font-size: 75%;
+            }
+            .transaction-type {
+              text-transform: capitalize;
+            }
+          }
+          .amount-container {
+            border: 3px solid $simple-ui-buy-sell-amount-border-color;
+            border-radius: 0 0 20px 20px;
+            padding: 30px 0;
+            .for {
+              margin: 15px 0;
+              color: $simple-ui-buy-sell-amount-for-color;
+            }
+            .buy-sell-modal-wrapper {
+              padding: 20px;
+              color: $simple-ui-buy-sell-modal-color;
+
+              .buy-sell-modal-title {
+                font-size: 2rem;
+                font-weight: $light;
+                padding: 20px;
+                border-bottom: 2px solid $simple-ui-buy-sell-modal-title-border;
+                margin-bottom: 20px;
+              }
+              p {
+                color: $simple-ui-buy-sell-modal-color;
+              }
+              ul {
+                text-align: left;
+                padding: 15px 75px 0 75px;
+                li {
+                  margin: 20px 0;
+                  span {
+                    float: right;
+                    font-weight: $bold;
+                  }
+                }
+              }
+              .action-button {
+                margin-top: 40px;
+                text-align: center;
+                button:hover {
+                  background-color: $simple-ui-buy-sell-action-button-background-hover;
+                }
+              }
+              @media screen and (max-width: $small-min-width) {
+                padding: 20px 0;
+                font-size: 75%;
+              }
+            }
+            .amount {
+              font-size: 200%;
+              font-weight: $regular;
+              margin: 30px 0;
+              @media screen and (max-width: $small-min-width) {
+                font-size: 100%;
+              }
+            }
+            .button {
+              @media screen and (max-width: 620px) {
+                font-size: 75%;
+                padding: 6px 10px;
+              }
+            }
+          }
+        }
+      }
+
+      .custom-amount-container {
+        margin-top: 50px;
+      }
+    }
+
+    &.buy-sell-a-custom-amount {
+      padding-bottom: 40px;
+
+      .input-container .input-quantity-custom {
+        .field-content {
+          position: relative;
+          .form-icon-container {
+            position: absolute;
+            right: 55px;
+            top: 10px;
+          }
+        }
+        &.input-error input {
+          border-color: $ask-color;
+        }
+        .form-icon-container {
+          position: absolute;
+          right: 55px;
+          top: 10px;
+        }
+        &.input-error input {
+          border-color: $ask-color;
+        }
+      }
+
+      .ui-controls {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-top: 30px;
+        label.form-field.select.instrument {
+          .field-label {
+            display: none;
+          }
+        }
+        .buy-sell-selector {
+          display: flex;
+          text-transform: uppercase;
+          color: $buy-sell-custom-selector-color;
+          font-size: 125%;
+          .option {
+            margin-right: 40px;
+            cursor: pointer;
+            &.active {
+              color: $buy-sell-custom-selector-option-active;
+              font-weight: $regular;
+              .select-indicator {
+                width: 100%;
+                height: 3px;
+                background-color: $buy-sell-custom-selector-option-active-bg;
+                margin-top: 8px;
+              }
+            }
+          }
+        }
+        .pair.select {
+          .field-label {
+            display: none;
+          }
+          width: 150px;
+        }
+      }
+      .input-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: 30px;
+        .field-label {
+          display: none;
+        }
+        input {
+          height: 30px;
+          color: $buy-sell-custom-input-color;
+          background: $buy-sell-custom-input-bg;
+          border: 1px solid $buy-sell-custom-input-border-color;
+          border-radius: 25px;
+          margin-bottom: 20px;
+          padding: 6px 12px;
+          width: 80%;
+          font-family: $font-family;
+          font-size: 13px;
+          display: block;
+        }
+        h3 {
+          margin: 30px 0px;
+        }
+        label {
+          display: block;
+          font-weight: 700;
+          margin-left: 10px;
+          margin-bottom: 15px;
+        }
+        .summary-wrapper {
+          p {
+            display: inline-block;
+          }
+          span {
+            display: inline-block;
+            float: right;
+          }
+        }
+        .price-wrapper {
+          margin-left: 100px;
+        }
+
+        .button {
+          margin: auto;
+          text-align: center;
+          width: auto;
+          margin-top: 30px;
+          &.disabled {
+            background: $buy-sell-custom-button-disabled-bg;
+            cursor: not-allowed;
+          }
+        }
+        .buy-sell-custom-modal-wrapper {
+          text-align: center;
+          padding: 50px;
+          margin: 20px;
+          img {
+            margin-bottom: 25px;
+          }
+          p {
+            font-size: 120%;
+          }
+        }
+        .form-field {
+          .field-label {
+            display: none;
+          }
+          .field-content {
+            input {
+              &:focus {
+                border-radius: 25px;
+                outline: unset;
+                border-color: $bid-color;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.my-accounts {
+      table.table {
+        display: table;
+        width: 100%;
+        .table-header {
+          display: table-header-group;
+          font-size: 14px;
+          min-width: 0;
+        }
+      }
+      .content-container {
+        .content {
+          // .current-balances,
+          // .recent-transactions,
+          .account-history {
+            text-align: center;
+            margin-bottom: 25px;
+            .table {
+              .table-header {
+                border-bottom: 1px solid $my-accts-table-header-border-color;
+                .header-cell {
+                  user-select: none;
+                }
+              }
+              .table-body {
+                .row {
+                  height: 45px;
+                  .cell {
+                    padding: 4px;
+                    &.empty {
+                      text-align: center;
+                      font-size: 14px;
+                    }
+                    &.status {
+                      text-transform: capitalize;
+                    }
+                  }
+                  &:first-of-type {
+                    .cell {
+                      padding-top: 10px;
+                    }
+                  }
+                  &:hover {
+                    color: $my-accts-table-row-hover-color;
+                    background: $my-accts-table-row-hover-bg-color;
+                  }
+                }
+              }
+            }
+          }
+          
+          #my-accounts-table {
+            height: 34vh;
+            min-height: 424px;
+            margin: 0 auto;
+            width: 750px;
+            .account-history-container,
+            .filled-orders-container,
+            .component-header {
+              .component-tabs {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: 1fr;
+              }
+            }
+            .component-contents {
+              .table {
+                flex: inherit;
+              }
+            }
+            .table-body {
+              .row {
+                &:nth-of-type(odd) {
+                  background: $my-accounts-table-alternate-row-color;
+                }
+                &:hover {
+                  background: $highlight-color;
+                }
+                font-size: 11px;
+                color: white;
+              }
+            }
+          }
+
+          .current-balances {
+            table {
+              table-layout: fixed;
+              .table-header {
+                .header-cell {
+                  user-select: none;
+                  &:not(.account-actions) {
+                    cursor: pointer;
+                    &:hover {
+                      background: $my-accts-current-balances-cell-hover-bg;
+                    }
+                  }
+                  &.account-actions {
+                    cursor: default;
+                  }
+                  span {
+                    position: relative;
+                    &.ascending::after,
+                    &.descending::after {
+                      font-family: $font-awesome;
+                      position: absolute;
+                      right: -15px;
+                      font-weight: bold;
+                    }
+                    &.ascending::after {
+                      content: '\f0d8';
+                    }
+                    &.descending::after {
+                      content: '\f0d7';
+                    }
+                  }
+                }
+              }
+            }
+            .current-balances-header {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              .balances-filter-container {
+                display: flex;
+                align-items: center;
+                .clear-sort-button {
+                  font-size: 14px;
+                  color: $my-accts-current-balances-clear-sort-button;
+                  margin-bottom: 0px;
+                  line-height: inherit;
+                  margin-right: 15px;
+                  cursor: pointer;
+                  &:hover {
+                    i {
+                      color: $my-accts-current-balances-clear-sort-button-hover;
+                    }
+                  }
+                }
+                .balances-filter {
+                  width: 100px;
+                  background: $my-accts-balances-filter-bg-color;
+                  color: $my-accts-balances-filter-color;
+                  font-size: 15.5px;
+                  font-weight: 300;
+                  padding: 2px 5px;
+                  border: 1px solid $my-accts-balances-filter-border-color;
+                  border-radius: 10px;
+                  &:focus {
+                    outline: none;
+                    border-color: $my-accts-balances-filter-border-focus-color;
+                  }
+                }
+              }
+            }
+            .product,
+            .action-buttons {
+              text-align: center;
+              .highlight {
+                color: $my-acct-product-action-buttons-highlight;
+                font-weight: 400;
+              }
+            }
+            .pending-deposits {
+              width: 10%;
+            }
+            .account-actions {
+              @media screen and (min-width: $small-min-width) {
+                width: 250px;
+              }
+              .action-buttons {
+                .button {
+                  margin: 0 2px;
+                  width: 110px;
+                  padding: 6px 0;
+                  @media screen and (max-width: $small-min-width) {
+                    margin: 2px 0;
+                    width: 80px;
+                    font-size: 75%;
+                  }
+                }
+              }
+            }
+            .current-balances-bottom-bar {
+              .hidden {
+                visibility: hidden;
+              }
+            }
+          }
+
+          .recent-transactions {
+            min-height: 300px;
+            .table-body {
+              td {
+                font-size: 12px;
+                &.buy {
+                  color: $bid-color;
+                }
+                &.sell {
+                  color: $ask-color;
+                }
+              }
+            }
+          }
+
+          .account-history {
+            min-height: 300px;
+          }
+        }
+      }
+
+      .deposit-modal {
+        .deposit-form {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
+          margin-top: -20px;
+          .amount-input {
+            width: 62%;
+          }
+        }
+        .error {
+          .error-message {
+            padding-bottom: 15px;
+          }
+        }
+        .success {
+          .success-message {
+            padding-bottom: 15px;
+          }
+        }
+        .action-buttons {
+          .button {
+            margin-left: 20px;
+            &:first-of-type {
+              margin-left: 0;
+            }
+          }
+        }
+      }
+    }
+
+    &.settings {
+      padding-bottom: 200px;
+      .content-container {
+        .content {
+          .settings-container {
+            .form-input-container {
+              width: calc(100% / 3);
+            }
+            .content-wrapper {
+              position: relative;
+
+              .additional-fields {
+                transition: 0.3s all;
+                transform-origin: top center;
+                &.fade-slide-enter {
+                  opacity: 0;
+                }
+                &.fade-slide-enter-done {
+                  opacity: 1;
+                }
+                &.fade-slide-exit {
+                  opacity: 0;
+                }
+                &.fade-slide-exit-active {
+                  opacity: 0;
+                }
+                .qr-code-container {
+                  display: flex;
+                  padding-bottom: 20px;
+                  @media screen and (max-width: 620px) {
+                    flex-direction: column;
+                    align-items: center;
+                    img {
+                      width: 200px;
+                    }
+                    .code-container {
+                      margin: 0;
+                    }
+                  }
+                }
+                .code-container {
+                  margin-left: 10%;
+                  .authenticator-key {
+                    color: $settings-auth-key-color;
+                  }
+                  .key {
+                    margin-top: 10px;
+                    font-size: 12px;
+                    margin-bottom: 20px;
+                  }
+                  .refresh {
+                    margin-top: 30px;
+                    cursor: pointer;
+                  }
+                }
+
+                .required-inputs {
+                  margin-top: 30px;
+                  display: flex;
+                  align-items: flex-end;
+                  & > div {
+                    margin: 0 10px;
+                    width: 50%;
+                    input:focus {
+                      outline: none;
+                    }
+                  }
+                }
+
+                input {
+                  height: 44px;
+                  color: $settings-acct-form-active-input-color;
+                  background-color: $settings-acct-form-active-input-bg-color;
+                  border: 1px solid $settings-acct-form-active-input-border-color;
+                  caret-color: $settings-acct-form-active-input-caret-color;
+                  border-radius: 25px;
+                  padding: 6px 12px;
+                  width: 90%;
+                  font-family: $font-family;
+                  font-size: 13px;
+                  &:-webkit-autofill,
+                  &:-webkit-autofill:hover,
+                  &:-webkit-autofill:focus,
+                  &:-webkit-autofill:active {
+                    -webkit-box-shadow: 0 0 0 30px $settings-acct-form-active-input-box-shadow inset !important;
+                  }
+                  &:-webkit-autofill {
+                    -webkit-text-fill-color: $settings-acct-form-active-input-color !important;
+                  }
+                }
+                .fa-eye {
+                  transform: translate(-40px, 15px);
+                }
+              }
+
+              .action-buttons {
+                display: flex;
+                align-items: center;
+                position: absolute;
+                top: 0px;
+                transition: 0.4s all;
+                // transform: translateY setting set dynamically in SecuritySettings component
+                button {
+                  margin-bottom: 0px;
+                  margin-right: 20px;
+                }
+                .toggle-labels {
+                  text-transform: uppercase;
+                  display: flex;
+                  align-items: center;
+                  .off {
+                    margin-right: 10px;
+                  }
+                  .on {
+                    margin-left: 10px;
+                  }
+                }
+                .update-button {
+                  margin-left: 40px;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .toggle-container {
+        display: inline;
+      }
+
+      .content-container {
+        .content {
+          .settings-content {
+            margin-top: 20px;
+            .field-label {
+              margin-bottom: 12px;
+              font-weight: bold;
+              .field-details {
+                margin-top: 7px;
+                font-weight: $light;
+              }
+            }
+
+            .verify-error {
+              color: $error-color;
+            }
+
+            input {
+              height: 44px;
+              color: $settings-input-color;
+              border: 1px solid $settings-input-border-color;
+              background: $settings-input-bg-color;
+              padding: 6px 12px;
+              width: 90%;
+              font-family: $font-family;
+              font-size: 13px;
+              border-radius: 25px;
+            }
+
+            .hide-show-password {
+              @include default-hide-show-password($x: -10px, $y: 15px, $position: absolute);
+              @media (max-width: $medium-min-width) {
+                @include default-hide-show-password($x: -10px, $y: -30px, $position: relative);
+              }
+            }
+
+            .field-content-disabled {
+              input {
+                border-color: $settings-input-disabled-border-color;
+              }
+              select {
+                border-color: $settings-input-disabled-border-color;
+              }
+            }
+
+            .modal-content {
+              .form-errors {
+                color: $error-color;
+              }
+            }
+
+            .change-password {
+              .form-input-container {
+                width: calc(100% / 1);
+              }
+              .field-content {
+                input {
+                  height: 44px;
+                  color: $settings-change-password-input-color;
+                  background: $settings-change-password-input-bg-color;
+                  border: 1px solid $settings-change-password-input-border-color;
+                  border-radius: 25px;
+                  margin-bottom: 20px;
+                  padding: 6px 12px;
+                  width: 90%;
+                  font-family: $font-family;
+                  font-size: 13px;
+                }
+
+                
+              }
+              .hide-show-password {
+                @include default-hide-show-password($x: -30px, $y: 15px, $position: absolute);
+                @media (max-width: $medium-min-width) {
+                  @include default-hide-show-password($x: -10px, $y: -50px, $position: relative);
+                }
+              }
+            }
+
+            .reset-password {
+              margin-bottom: 30px;
+              a {
+                cursor: pointer;
+              }
+            }
+
+            .account-form {
+              pointer-events: none;
+              .field-label {
+                color: $settings-account-form-field-label;
+              }
+
+              .country .field-content{
+                padding-left: 0 !important;
+              }
+              
+              .field-content, .field-content-disabled{
+                input, select{
+                  background-color: #8E74A5 !important;
+                  border-radius: 10px !important;
+
+                  &::placeholder{
+                    color: white;
+                  }
+                }
+              }
+
+              .field-content {
+                @-webkit-keyframes autofill {
+                  to {
+                    color: $settings-input-autofill-color;
+                    background: $settings-input-autofill-bg-color;
+                    border: 1px solid $settings-input-autofill-border-color;
+                  }
+                }
+                input:-webkit-autofill {
+                  -webkit-animation-name: autofill;
+                  -webkit-animation-fill-mode: both;
+                }
+                select:-webkit-autofill {
+                  -webkit-animation-name: autofill;
+                  -webkit-animation-fill-mode: both;
+                }
+              }
+
+              .country {
+                .field-content {
+                  border-radius: 25px;
+                  padding: 0px 12px;
+                  select {
+                    -webkit-appearance: none;
+                    background-color: $settings-select-bg-color;
+                    border-color: $settings-select-border-color;
+                    color: $settings-select-color;
+                    height: 44px;
+                    border-radius: 25px;
+                    padding: 6px 12px;
+                    width: 100%;
+                    font-family: $font-family;
+                    font-size: 13px;
+                    font-weight: $medium;
+                  }
+                }
+              }
+
+              .field-content {
+                textarea,
+                .react-datepicker-component {
+                  background-color: $settings-textarea-bg-color;
+                  border-color: $settings-textarea-border-color;
+                  color: $settings-textarea-color;
+                  height: 44px;
+                  border-radius: 25px;
+                  padding: 6px 12px;
+                  width: 90%;
+                  font-family: $font-family;
+                  font-size: 13px;
+                  font-weight: $medium;
+                  input {
+                    border-color: $settings-datepicker-input-border-color;
+                    color: $settings-datepicker-input-color;
+                    background-color: $settings-datepicker-input-bg-color;
+                  }
+                }
+              }
+            }
+
+            .account-form-active {
+              .field-label {
+                color: $light-color-1;
+              }
+              .date-picker {
+                input {
+                  color: $dark-color-4;
+                }
+              }
+
+              input {
+                height: 44px;
+                color: $settings-acct-form-active-input-color;
+                background-color: $settings-acct-form-active-input-bg-color;
+                border: 1px solid $settings-acct-form-active-input-border-color;
+                caret-color: $settings-acct-form-active-input-caret-color;
+                border-radius: 25px;
+                padding: 6px 12px;
+                width: 90%;
+                font-family: $font-family;
+                font-size: 13px;
+                &:-webkit-autofill,
+                &:-webkit-autofill:hover,
+                &:-webkit-autofill:focus,
+                &:-webkit-autofill:active {
+                  -webkit-box-shadow: 0 0 0 30px $settings-acct-form-active-input-box-shadow inset !important;
+                }
+                &:-webkit-autofill {
+                  -webkit-text-fill-color: $settings-acct-form-active-input-color !important;
+                }
+              }
+
+              .field-content-disabled {
+                input {
+                  border-color: $settings-acct-form-disabled-input-border-color;
+                }
+                select {
+                  border-color: $settings-acct-form-disabled-select-border-color;
+                }
+              }
+
+              .country {
+                .field-content {
+                  border: 1px solid white;
+                  border-radius: 25px;
+                  padding: 0px 12px;
+                  select {
+                    -webkit-appearance: menulist;
+                    background-color: $settings-country-select-bg-color;
+                    border-color: $settings-country-select-border-color;
+                    color: $settings-country-select-color;
+                    height: 44px;
+                    width: 100%;
+                    font-family: $font-family;
+                    font-size: 13px;
+                    font-weight: $medium;
+                  }
+                }
+              }
+
+              @-webkit-keyframes autofill {
+                to {
+                  color: $settings-input-autofill-color;
+                  background-color: $settings-input-autofill-bg-color;
+                  border-color: $settings-input-autofill-border-color;
+                }
+              }
+              select:-webkit-autofill {
+                -webkit-animation-name: autofill;
+                -webkit-animation-fill-mode: both;
+              }
+
+              .field-content {
+                textarea,
+                .react-datepicker-component {
+                  background-color: $settings-textarea-bg-color;
+                  border-color: $settings-textarea-bg-color;
+                  color: $light-color-1;
+                  height: 30px;
+                  border-radius: 25px;
+                  padding: 6px 12px;
+                  width: 90%;
+                  font-family: $font-family;
+                  font-size: 13px;
+                  font-weight: $medium;
+                  input {
+                    border-color: $input-bg-color;
+                    color: $settings-textarea-color;
+                  }
+                }
+              }
+              .form-buttons {
+                width: 130px;
+              }
+            }
+
+            button {
+              margin-bottom: 30px;
+            }
+          }
+        }
+      }
+    }
+
+    &.help-center {
+      .content-container {
+        .content {
+          li {
+            margin: 10px;
+          }
+          ol {
+            cursor: default;
+          }
+          .question {
+            margin-top: 0px;
+            font-weight: $regular;
+          }
+          .answers-list {
+            margin: 100px 0px;
+          }
+          .answer {
+            margin: 30px;
+            font-size: 13px;
+          }
+          .help-answer-container {
+            button {
+              background-color: $help-answer-button-bg-color;
+              padding: 0px;
+            }
+          }
+        }
+      }
+    }
+
+    &.my-accounts {
+      .deposit-fiat-form {
+        margin-top: 30px;
+        .deposit-fiat-form-fields {
+          .amount {
+            width: 50%;
+          }
+          input {
+            height: 30px;
+            color: $my-accts-deposit-input-color;
+            background: $my-accts-deposit-input-bg-color;
+            border: 1px solid $my-accts-deposit-input-border-color;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            padding: 6px 12px;
+            width: 93%;
+            font-family: $font-family;
+          }
+          button {
+            text-align: right;
+          }
+        }
+      }
+      .action-button {
+        float: right;
+        margin-top: 25px;
+      }
+      .submit-button {
+        float: right;
+        margin-right: 10px;
+        &:hover {
+          transition: 0.3s;
+          -webkit-transition: all 0.3s linear;
+          border-color: $my-accts-deposit-submit-button-hover-bg;
+        }
+      }
+      .deposit-fiat,
+      .withdraw-fiat,
+      .deposit-crypto,
+      .withdraw-crypto {
+        input[type='text'] {
+          height: 33px;
+          padding: 2px 4px;
+        }
+        .modal-content {
+          text-align: left;
+          a {
+            color: $my-accts-fiat-modal-link-color;
+            &:hover {
+              color: $my-accts-fiat-modal-link-hover-color;
+            }
+          }
+          .address-container {
+            display: flex;
+            margin: 25px 0;
+            .crypto-address-qr-code {
+              margin-right: 25px;
+              .placeholder {
+                background: $my-accts-crypto-qr-code-bg-color;
+                height: 128px;
+                width: 128px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                i {
+                  color: $my-accts-crypto-qr-code-icon-color;
+                  font-size: 60px;
+                }
+              }
+            }
+            .crypto-address-text {
+              .crypto-address-title {
+                margin-top: 30px;
+                margin-bottom: 8px;
+                &.placeholder {
+                  background: $my-accts-crypto-address-blurb-bg;
+                  height: 15px;
+                  width: 80px;
+                  margin-top: 25px;
+                }
+              }
+              .crypto-address-code {
+                font-size: 125%;
+                margin: 0;
+                font-weight: $bold;
+                &.placeholder {
+                  font-size: 100%;
+                  font-weight: $regular;
+                  line-height: 20px;
+                  background: $my-accts-crypto-address-code-bg;
+                  min-height: 30px;
+                  min-width: 300px;
+                  margin-top: 5px;
+                  display: flex;
+                  align-items: center;
+                  padding: 5px;
+                  span {
+                    color: $my-accts-crypto-address-code-span-color;
+                  }
+                }
+              }
+            }
+          }
+          .qr-wrapper {
+            margin-bottom: 25px;
+          }
+          .close-button {
+            text-align: right;
+          }
+          .withdraw-2fa-error {
+            min-height: 20px;
+            p {
+              margin-top: 25px;
+              color: $error-color;
+            }
+          }
+        }
+
+        img {
+          height: 120px;
+          display: inline-block;
+          float: left;
+          margin-right: 30px;
+        }
+        h2,
+        h3,
+        p {
+          color: $my-accts-deposit-withdraw-font-color;
+        }
+        h2 {
+          margin-bottom: 40px;
+        }
+        h3 {
+          margin: 20px 0px;
+        }
+        p {
+          margin: 10px 0px;
+        }
+        .token {
+          text-align: center;
+          padding: 30px;
+          font-weight: bold;
+        }
+      }
+      .withdraw-fiat,
+      .withdraw-crypto {
+        .withdraw-fiat-form,
+        .withdraw-crypto-form {
+          .form-input-container {
+            &.amount { flex: 1 }
+            &.address { flex: 3 }
+            &.destination-tag { flex: 1 }
+          }
+          .form-buttons {
+            margin-top: 25px;
+          }
+        }
+        .form-container-wrapper {
+          position: relative;
+          .breakdown-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            min-width: 200px;
+            max-width: 35%;
+            p {
+              margin: 0;
+              font-size: 14px;
+              width: 100%;
+              display: flex;
+              justify-content: space-between;
+              white-space: nowrap;
+              span {
+                &:not(:first-of-type) {
+                  margin-left: 10px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .sidebar-container {
+    width: 220px;
+    background: $simple-ui-sidebar-bg;
+    color: $simple-ui-sidebar-text-color;
+    min-height: 100vh;
+    flex: none;
+    @media screen and (max-width: 1000px) {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 230px;
+      transform: translateX(-231px);
+      transition: 0.25s transform;
+      border-right: 1px solid $simple-ui-sidebar-mobile-border-color;
+      z-index: 9;
+      &.open {
+        transform: translateX(0px);
+        box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.35);
+      }
+    }
+  }
+
+  .sidebar {
+    width: 100%;
+    list-style: none;
+    padding: 30px 0;
+    position: relative;
+    .sidebar-icon-close {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      display: none;
+      @media screen and (max-width: 1000px) {
+        display: initial;
+      }
+    }
+    .logo-container {
+      padding-bottom: 50px;
+      padding-left: 30px;
+      img {
+        width: 90px;
+      }
+    }
+    .item {
+      color: $simple-ui-sidebar-text-color;
+      cursor: pointer;
+      i {
+        padding-right: 15px;
+      }
+      &.nav-link {
+        color: $simple-ui-nav-link-color;
+        a {
+          text-decoration-line: none;
+          display: block;
+          padding: 17px 30px;
+          transition: 0.1s;
+          &:visited {
+            color: $simple-ui-nav-link-visited-color;
+          }
+          &:hover {
+            color: $simple-ui-nav-link-hover-color;
+            background: $simple-ui-nav-link-hover-bg-color;
+          }
+          &.active {
+            color: $simple-ui-nav-link-active-color;
+          }
+        }
+      }
+      &.balances-container {
+        .accordion {
+          .panel {
+            padding: 0px 35px;
+            font-size: 13px;
+            span {
+              float: right;
+            }
+            li {
+              padding: 10px 0px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .modal-content {
+    .field-label {
+      display: none;
+    }
+    input {
+      width: calc(100% - 9px);
+      height: 28px;
+      font-weight: $light;
+      background-color: $form-field-input-bg-color;
+      padding: 2px 4px;
+      border-color: $form-field-border-color;
+      border-width: 1px;
+      border-style: solid;
+      border-radius: 10px;
+      font-size: 15.5px;
+      &::placeholder {
+        font-weight: normal;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+    .field-content-disabled {
+      input {
+        border-color: transparent;
+      }
+      select {
+        border-color: transparent;
+      }
+    }
+    button.button {
+      background: $modal-button-bg-color;
+      color: $modal-button-color;
+      border: none;
+      border-radius: 40px;
+      padding: 9px 30px;
+      font-size: 100%;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: 0.3s;
+      outline: none;
+      @media screen and (max-width: 620px) {
+        font-size: 75%;
+        padding: 6px 10px;
+      }
+      & > span.text-container {
+        font-weight: normal;
+      }
+      &.disabled {
+        background: $modal-button-disabled-bg-color;
+        cursor: not-allowed;
+      }
+      &.loading {
+        & > span.icon-container {
+          position: relative;
+          left: 9px;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+
+  .form-container {
+    margin: 0 -5px;
+    .form-description {
+      margin: 0 5px;
+    }
+    .fields-container {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+    .account-form-active-fields {
+      margin-bottom: 20px;
+    }
+
+    .form-buttons {
+      padding: 20px 0 0 0;
+      display: flex;
+      justify-content: flex-end;
+      .submit-button,
+      button {
+        height: 40px;
+        padding: 0 30px;
+        border-radius: 20px;
+        background: $button-simple-ui-bg-color;
+        color: $button-simple-ui-color;
+        text-transform: uppercase;
+        border: none;
+        outline: 0;
+        font-weight: $bold;
+        font-size: 16px;
+        margin: 0 5px;
+        &:hover {
+          background: $button-simple-ui-hover-bg-color;
+        }
+        &.disabled {
+          background: $button-simple-ui-disabled-bg-color;
+        }
+        &:active {
+          background: $button-simple-ui-active-bg-color;
+        }
+      }
+    }
+  }
+
+  .form-input-container {
+    height: auto;
+    &.error {
+      padding: 0;
+      input {
+        border-color: $form-field-border-color-error !important;
+      }
+    }
+    .field-label {
+      margin: 0 0 10px 0;
+      font-size: 13px;
+      font-weight: $light;
+      overflow: hidden;
+      white-space: nowrap;
+      display: block;
+    }
+    &.active {
+      .form-field {
+        input,
+        select,
+        textarea {
+          outline: none;
+          border-color: $form-field-border-color-active;
+          box-shadow: none;
+          border-style: solid;
+        }
+      }
+    }
+    .form-field {
+      width: auto;
+      color: $form-field-text-color;
+      display: block;
+      margin: 0 5px;
+      .field-content {
+        position: relative;
+        .error-icon {
+          position: absolute;
+          right: 10px;
+        }
+        .form-icon-container {
+          position: absolute;
+          right: 0;
+          margin-right: 0%;
+          top: 5%;
+        }
+      }
+
+      .field-label {
+        margin: 10px 0;
+      }
+      select,
+      textarea,
+      .react-datepicker-component {
+        width: calc(100% - 9px);
+        height: 28px;
+        font-weight: $light;
+        background-color: $form-field-input-bg-color;
+        padding: 2px 4px;
+        border-color: $form-field-border-color;
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 10px;
+        font-size: 15.5px;
+        &::placeholder {
+          font-weight: $light;
+        }
+      }
+      select {
+        height: 33px;
+      }
+      textarea {
+        height: 3em;
+      }
+
+      .field-content-disabled {
+        input {
+          border-color: transparent;
+        }
+        select {
+          border-color: transparent;
+        }
+      }
+
+      .react-datepicker {
+        .react-datepicker__year-select {
+          width: 100%;
+        }
+      }
+
+      .radio-input-options {
+        display: flex;
+        height: 28px;
+        margin-top: 15px;
+        justify-content: space-between;
+        .radio-option-container {
+          margin-right: 7px;
+          .radio-option {
+            display: flex;
+            .radio-button-label {
+              font-weight: $light;
+            }
+            .radio-button {
+              width: 22px;
+              position: relative;
+              bottom: 8.5px;
+            }
+          }
+        }
+      }
+      &.file-upload-button {
+        font-weight: $light;
+        text-align: left;
+        button {
+          height: 34px;
+        }
+      }
+      &.date-input {
+        .react-datepicker-component {
+          height: 28px;
+          input {
+            border: none;
+          }
+          .react-datepicker-input {
+            width: 100%;
+            border: none;
+            background: none;
+            height: 28px;
+          }
+          .react-datepicker.floating {
+            .react-datepicker-top {
+              background: $datepicker-background-top-color;
+              border-color: $datepicker-background-top-color;
+              &::after {
+                border-bottom-color: $datepicker-background-top-color;
+              }
+            }
+          }
+        }
+        input {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+
+
+  button.button.file-upload {
+    background: $modal-file-upload-button-bg;
+    color: #2e2e2e;
+    border: 1px solid #bbbbbb;
+    border-radius: 5px;
+    padding: 9px 30px;
+    font-size: 80%;
+    font-weight: lighter;
+    text-transform: none;
+    -webkit-box-shadow: 2px 2px 7px 0px rgba(189, 189, 189, 1);
+    -moz-box-shadow: 2px 2px 7px 0px rgba(189, 189, 189, 1);
+    box-shadow: 2px 2px 7px 0px rgba(189, 189, 189, 1);
+    cursor: pointer;
+    transition: 0.3s;
+    outline: none;
+    @media screen and (max-width: 620px) {
+      font-size: 75%;
+      padding: 6px 10px;
+    }
+    & > span.text-container {
+      font-weight: normal;
+    }
+    &.disabled {
+      background: $modal-file-upload-button-bg-disabled;
+      cursor: not-allowed;
+    }
+    &.loading {
+      & > span.icon-container {
+        position: relative;
+        left: 9px;
+        cursor: not-allowed;
+      }
+    }
+  }
+  .file-upload-button {
+    .file-ready {
+      span {
+        padding-left: 6px;
+        i {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .loader-container {
+    position: relative;
+    width: 100%;
+    min-height: 30vh;
+    .loader {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .loader-animation {
+    margin: auto;
+    .lds-ring {
+      display: inline-block;
+      position: relative;
+      width: 64px;
+      height: 64px;
+    }
+    .lds-ring div {
+      box-sizing: border-box;
+      display: block;
+      position: absolute;
+      width: 51px;
+      height: 51px;
+      margin: 6px;
+      border: 6px solid #fff;
+      border-radius: 50%;
+      animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+      border-color: #fff transparent transparent transparent;
+    }
+    .lds-ring div:nth-child(1) {
+      animation-delay: -0.45s;
+    }
+    .lds-ring div:nth-child(2) {
+      animation-delay: -0.3s;
+    }
+    .lds-ring div:nth-child(3) {
+      animation-delay: -0.15s;
+    }
+    @keyframes lds-ring {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    &.alt {
+      .lds-ring div {
+        border: 6px solid $loader-alt-ring-border-color;
+        border-color: $loader-alt-ring-border-color transparent transparent transparent;
+      }
+    }
+  }
+
+  @media (orientation: landscape ){
+    @media(max-height: 500px){
+      .sidebar{
+        padding: 0;
+        .logo-container{
+          display: none;
+        }
+        .balances-container{
+          display: none;
+        }
+      }
+      .simple-ui{
+        .modal-wrapper{
+          align-items: flex-start;
+          overflow-y: auto;
+        }
+      }
+    }
+  }
+
+  // mobile simple ui
+
+  @media (max-width: 414px){
+    .buy-sell-a-custom-amount{
+      .input-container {
+        grid-template-columns: repeat(1, 1fr) !important;
+        div:first-child {
+          grid-row-start: 2;
+        }
+      }
+    }
+    .settings-content {
+      button {
+        margin-bottom: 30px !important;
+      }
+    }
+  }
+
+
+  @media (max-width: 375px){
+    .main-container{
+      .header{
+        a {
+          display: none;
+        }
+      }
+      .content-container{
+        margin: 5px;
+        >h1{
+          display: none;
+        }
+        .page-heading,
+        .description {
+          display: none;
+        }
+      }
+    }
+    .buy-sell-option-container{
+      margin: 0 !important;
+      display: block !important;
+      float: left;
+      .buy-sell-option{
+        width: 45% !important;
+        float: left;
+        margin: 10px 2.5% !important;
+        .amount-container{
+          padding: 10px !important;
+          .for {
+            margin: 5px !important;
+          }
+          .button{
+            padding: 10px 20px !important;
+          }
+        }
+      }
+    }
+    .modal-content{
+      padding: 20px !important;
+      .buy-sell-modal-wrapper{
+        font-size: 100% !important;
+        ul {
+          padding: 15px 20px !important;
+          li {
+            width: 100% !important;
+            float: left !important;
+            font-size: 14px !important;
+          }
+        }
+      }
+    }  
+    @media (max-height: 668px){
+      .simple-ui{
+        .modal-wrapper{
+          align-items: flex-start;
+          overflow-y: auto;
+        }        
+      }
+      .form-field{
+        select,
+        textarea,
+        input {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}

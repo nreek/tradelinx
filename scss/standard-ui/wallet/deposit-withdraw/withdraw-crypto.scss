@@ -1,0 +1,68 @@
+.withdraw-crypto {
+  .withdraw-crypto-row {
+    display: grid;
+    grid-template-columns: 85px 1fr;
+    padding: 20px;
+    align-items: center;
+    .row-title {
+      text-transform: uppercase;
+    }
+  }
+  .crypto-product-name {
+    @include flex(center, flex-start);
+    text-transform: uppercase;
+    img::after{
+      font-weight: 700;
+      font-family: 'Font Awesome 5 Pro';
+      content: '\f85c';
+    }
+    .currency-icon {
+      margin-right: 5px;
+    }
+  }
+  .crypto-address-text-code {
+    p, &:not(:last-child) {
+      margin-bottom: 5px;
+    }
+  }
+  
+  .form-container {
+    padding: 20px;
+    .field-label {
+      @extend h2;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .field-content {
+      width: 100%;
+      margin-bottom: 20px;
+      position: relative;
+      input {
+        width: 100%;
+      }
+      .form-icon-container {
+        position: absolute;
+        right: 10px;
+        bottom: 50%;
+        transform: translateY(50%);
+        @include themify($themes) {
+          color: themed('negativeColor');
+        }
+      }
+    }
+  }
+
+  .percent-selector {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0px 20px;
+    position: relative;
+    bottom: 35px;
+    &>div {
+      width: calc(100% - 70px);
+      display: flex;
+      justify-content: space-between;
+      text-transform: uppercase;
+    }
+  }
+}

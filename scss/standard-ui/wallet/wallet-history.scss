@@ -1,0 +1,49 @@
+.wallet-history.component {
+  .component-content {
+    height: 100px;
+    padding: 0px;
+    padding-bottom: 15px;
+  }
+  .wallet-history-row {
+    display: grid;
+    grid-template-columns: 35px 1fr;
+    grid-template-areas:
+      'icon description'
+      'icon time';
+    grid-row-gap: 3px;
+    padding: 15px 20px;
+    &:not(:last-of-type) {
+      border-bottom: 1px solid;
+      @include themify($themes) {
+        border-color: themed('separatorColorDark');
+      }
+    }
+    .wallet-history-icon {
+      grid-area: icon;
+      align-self: center;
+      font-size: 20px;
+    }
+    &.buy,
+    &.sell {
+      .wallet-history-icon i {
+        transform: rotate(45deg);
+      }
+    }
+    .wallet-history-description {
+      grid-area: description;
+    }
+    .wallet-history-time {
+      grid-area: time;
+    }
+  }
+  .wallet-history-empty {
+    @include flex(center, center, row);
+    margin-top: 20px;
+    h3 {
+      padding-left: 5px;
+    }
+    i {
+      font-size: 20px;
+    }
+  }
+}

@@ -1,0 +1,39 @@
+.account-levels.component {
+  .account-level-section {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    grid-template-rows: 20px 1fr;
+    grid-template-areas:
+      'dot title'
+      '. details';
+    align-items: center;
+    height: 100px;
+    padding: 20px 40px;
+    &:not(:last-of-type) {
+      border-bottom: 1px solid;
+      @include themify($themes) {
+        border-color: themed('separatorColorDark');
+      }
+    }
+    .account-level-dot {
+      grid-area: dot;
+      justify-self: center;
+      font-size: 20px;
+      &.highlight {
+        @include themify($themes) {
+          color: themed('chartColor');
+        }
+      }
+    }
+    .account-level-title {
+      grid-area: title;
+    }
+    .account-level-details {
+      grid-area: details;
+      li {
+        font-size: 12px;
+        &:before { content: "- " };
+      }
+    }
+  }
+}

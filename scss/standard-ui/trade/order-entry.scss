@@ -1,0 +1,247 @@
+.order-entry {
+  .component-content {
+    position: relative;
+    .order-entry-type-container {
+      display: grid;
+      grid-template-columns: 1fr 81px;
+      grid-template-rows: 40px;
+      grid-template-areas: 'select buySell';
+      text-align: left;
+      align-items: center;
+      @include themify($themes) {
+        border-bottom: 1px solid themed('separatorColorDark');
+      }
+
+      .order-entry-select {
+        grid-area: select;
+        padding-left: 15px;
+        font-size: 10px;
+        font-weight: $bold;
+        @include themify($themes) {
+          color: themed('textColor');
+        }
+        .fa-ellipsis-h {
+          display: none;
+        }
+        
+        i {
+          margin-left: 5px;
+          font-size: 10px;
+        }
+      }
+      .order-entry-buy-sell {
+        padding-right: 7px;
+        grid-area: buySell;
+        text-align: right;
+      }
+
+      .order-entry-action-button {
+        display: inline-block;
+        padding: 5px 8px;
+        font-size: 10px;
+        font-weight: $bold;
+        text-transform: uppercase;
+
+        &.selected {
+          @include themify($themes) {
+            color: themed('tagActiveTextColor');
+            background-color: themed('buySellBackgroundColor');
+          }
+          box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+        }
+      }
+    }
+    .order-entry-select-open {
+      width: 100%;
+      @include themify($themes) {
+        background-color: themed('componentBackgroundColor');
+        border-radius: themed('componentBorderRadius');
+      }
+      opacity: 1;
+      color: black;
+      font-weight: $bold;
+      position: absolute;
+      bottom: 0;
+      top: 41px;
+      z-index: 2;
+      margin-bottom: 10px;
+      .drop-down-item {
+        @include themify($themes) {
+          color: themed('textColor');
+        }
+        cursor: pointer;
+        font-size: 10px;
+        font-weight: $bold;
+        margin: 10px;
+        padding: 10px;
+      }
+    }
+    .order-entry-amount {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 15px;
+      grid-template-areas: 'transaction currency';
+      align-items: center;
+      margin: 15px;
+      .transaction-action {
+        grid-area: transaction;
+        font-weight: $bold;
+        text-transform: uppercase;
+      }
+      .currency-container {
+        grid-area: currency;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        img::after{
+          font-weight: 700;
+          font-family: 'Font Awesome 5 Pro';
+          content: '\f85c';
+        }
+      }
+      .currency-name {
+        font-weight: $bold;
+      }
+      .currency-icon {
+        margin-right: 5px;
+        z-index: 1;
+      }
+    }
+    .order-entry-form {
+      .order-entry-field {
+        display: flex;
+        .form-field {
+          width: 90%;
+          margin: 0 auto;
+        }
+        .field-label {
+          font-family: Lato;
+          font-size: 12px;
+          font-weight: $bold;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: 1.25;
+          letter-spacing: normal;
+          text-align: left;
+        }
+
+        .react-datepicker-wrapper {
+          width: 100%;
+          .react-datepicker__input-container {
+            width: 100%;
+          }
+
+          input {
+            width: 100%;
+            margin-bottom: 10px;
+            box-shadow: none;
+            text-align: right;
+            font-size: 10px;
+            box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+          }
+        }
+        input {
+          width: 100%;
+          margin-bottom: 10px;
+          box-shadow: none;
+          text-align: right;
+          font-size: 10px;
+          box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+        }
+      }
+    }
+    .order-entry-summary {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        'summary summary'
+        'market-price-label market-price'
+        'order-total-label order-total'
+        'fees-label fees'
+        'net-label net';
+      @include themify($themes) {
+        border-top: 1px solid themed('separatorColorDark');
+      }
+
+      .transaction-summary {
+        grid-area: summary;
+        font-size: 12px;
+        font-weight: $bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.25;
+        letter-spacing: normal;
+        text-align: left;
+        text-transform: uppercase;
+        padding: 15px;
+      }
+      .market-price-label {
+        grid-area: market-price-label;
+        @include themify($themes) {
+          background-color: themed('lineItemBackgroundColor');
+        }
+      }
+      .market-price {
+        grid-area: market-price;
+        text-align: right;
+        @include themify($themes) {
+          background-color: themed('lineItemBackgroundColor');
+        }
+      }
+      .order-total-label {
+        grid-area: order-total-label;
+      }
+      .order-total {
+        grid-area: order-total;
+        text-align: right;
+      }
+      .fees {
+        grid-area: fees;
+        text-align: right;
+        @include themify($themes) {
+          background-color: themed('lineItemBackgroundColor');
+        }
+      }
+      .fees-label {
+        grid-area: fees-label;
+        @include themify($themes) {
+          background-color: themed('lineItemBackgroundColor');
+        }
+      }
+      .net-label {
+        grid-area: net-label;
+      }
+      .net {
+        grid-area: net;
+        text-align: right;
+      }
+
+      .market-price-label,
+      .market-price,
+      .order-total-label,
+      .order-total,
+      .fees-label,
+      .fees,
+      .net-label,
+      .net {
+        padding: 5px 15px;
+      }
+
+      font-family: Lato;
+      font-size: 10px;
+      font-weight: $bold;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.2;
+      letter-spacing: normal;
+      text-align: left;
+    }
+    .order-entry-buttons {
+      .place-order-button {
+        margin: 15px;
+        font-weight: $bold;
+        font-size: 10px;
+      }
+    }
+  }
+}

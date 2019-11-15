@@ -1,0 +1,21 @@
+.notifications-settings {
+  @media screen and (max-width: $medium-screen-width) {
+    display: block;
+    flex: none;
+    height: 90vh;
+  }
+  .notifications-content {
+    padding: 20px 40px;
+    h2 {
+      text-transform: uppercase;
+      font-size: 12px;
+      margin-bottom: 20px;
+    }
+    p {
+      margin-bottom: 20px;
+    }
+    div {
+      margin: 20px 0px;
+    }
+  }
+}

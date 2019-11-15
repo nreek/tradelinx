@@ -1,0 +1,59 @@
+@import './home/portfolio-overview';
+@import './home/market-activity';
+@import './home/headlines';
+@import './home/account-activity';
+
+.home {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 1.5fr 1fr;
+  grid-template-areas:
+    'overview market account'
+    'overview headlines account';
+  grid-gap: 25px;
+  margin: 0px 25px 25px;
+
+  // For individual component styling, refer to their separate stylesheets (imported above)
+  .portfolio-overview {
+    grid-area: overview;
+  }
+
+  .market-activity {
+    grid-area: market;
+  }
+
+  .headlines {
+    grid-area: headlines;
+  }
+
+  .account-activity {
+    grid-area: account;
+  }
+  @media screen and (max-width: $medium-screen-width) {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 'overview' 'market' 'headlines' 'account';
+    grid-gap: 0px;
+    margin: 0px;
+    .portfolio-overview {
+      grid-area: overview;
+      height: 100%;
+    }
+
+    .market-activity {
+      grid-area: market;
+      height: 100%;
+    }
+
+    .headlines {
+      grid-area: headlines;
+      height: 100%;
+    }
+
+    .account-activity {
+      grid-area: account;
+      height: 100%;
+    }
+  }
+}

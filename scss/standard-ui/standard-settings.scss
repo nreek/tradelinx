@@ -1,0 +1,56 @@
+// import component-level stylesheets
+@import './settings/profile-settings';
+@import './settings/notifications-settings';
+@import './settings/security-settings';
+
+.settings {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: 'nav-settigns profile-settings';
+  grid-gap: 25px;
+  margin: 0px 25px 25px;
+
+  // For individual component styling, refer to their separate stylesheets (imported above)
+  .profile-settings {
+    grid-area: profile-settings;
+  }
+  .nav-settigns {
+    grid-area: nav-settigns;
+    .nav-item.block {
+      height: 60px;
+      font-size: 12px;
+      font-weight: bold;
+      cursor: pointer;
+      text-align: left;
+      text-transform: uppercase;
+      vertical-align: middle;
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      margin: 20px 20px 0px 20px;
+      & > div {
+        @include flex(center, flex-start);
+        width: 100%;
+        padding: 0px 20px;
+      }
+    }
+  }
+  @media screen and (max-width: $medium-screen-width) {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 'nav-settigns' 'profile-settings';
+    grid-gap: 0px;
+    margin: 0px;
+
+    .profile-settings {
+      grid-area: profile-settings;
+      height: 100%;
+    }
+    .nav-settigns {
+      grid-area: nav-settigns;
+      height: 100%;
+    }
+  }
+}

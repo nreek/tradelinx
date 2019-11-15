@@ -1,0 +1,49 @@
+.instrument-stats {
+  @include flex(center, flex-start);
+  padding: 5px 25px;
+  flex: 1;
+  @include themify($themes) {
+    border-color: themed('separatorColorDark');
+  }
+  border-bottom: 1px solid;
+  @media screen and (max-width: $medium-screen-width) {
+    border-top: 1px solid;
+    box-shadow: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 0px 25px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100px;
+    grid-template-areas:
+      'stats-last-price'
+      'stats-high-low';
+
+    .stats-last-price {
+      grid-area: 'stats-last-price';
+      border-right: 1px solid;
+    }
+    .stats-high-low {
+      grid-area: 'stats-high-low';
+    }
+  }
+  .instrument-stat {
+    @include flex(center);
+    margin-right: 20px;
+
+    @include themify($themes) {
+      .price-high-value,
+      .positive {
+        color: themed('positiveColor');
+      }
+      .price-low-value,
+      .negative {
+        color: themed('negativeColor');
+      }
+    }
+    @media screen and (max-width: $medium-screen-width) {
+      margin-bottom: 10px;
+      margin-right: 0px;
+    }
+  }
+}

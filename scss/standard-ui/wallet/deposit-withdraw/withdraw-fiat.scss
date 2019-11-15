@@ -1,0 +1,54 @@
+.withdraw-fiat {
+  .withdraw-fiat-row {
+    display: grid;
+    grid-template-columns: 85px 1fr;
+    padding: 20px;
+    align-items: center;
+    .row-title {
+      text-transform: uppercase;
+    }
+  }
+  .fiat-product-name {
+    @include flex(center, flex-start);
+    text-transform: uppercase;
+    img::after{
+      font-weight: 700;
+      font-family: 'Font Awesome 5 Pro';
+      content: '\f85c';
+    }
+    .currency-icon {
+      margin-right: 5px;
+    }
+  }
+
+  .form-container {
+    padding: 20px;
+    .field-label {
+      @extend h2;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .field-content {
+      width: 100%;
+      margin-bottom: 20px;
+      position: relative;
+      input {
+        width: 100%;
+      }
+      .form-icon-container {
+        position: absolute;
+        right: 10px;
+        bottom: 50%;
+        transform: translateY(50%);
+        @include themify($themes) {
+          color: themed('negativeColor');
+        }
+      }
+    }
+  }
+
+  .error-message,
+  .success-message {
+    padding: 20px;
+  }
+}

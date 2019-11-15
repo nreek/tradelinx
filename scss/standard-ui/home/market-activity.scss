@@ -1,0 +1,134 @@
+.market-activity.component .component-content {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  .search-bar {
+    @include flex(center, space-between);
+    padding: 10px 20px;
+    border-bottom: 1px solid;
+    @include themify($themes) {
+      border-color: themed('separatorColorDark');
+    }
+    .filter-input-container {
+      position: relative;
+      i.fa-search {
+        position: absolute;
+        right: 5px;
+        top: 7px;
+        font-size: 10px;
+      }
+    }
+    .filter-sort-container {
+      @include flex(center);
+      position: relative;
+
+      h2 { text-transform: uppercase; }
+      i { cursor: pointer; }
+
+      .sort-dropdown {
+        position: absolute;
+        top: 30px;
+        right: -17px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        z-index: 1;
+        white-space: nowrap;
+        @include themify($themes) {
+          background: themed('sidebarBackgroundColor');
+          border-radius: 0px 0px themed('blockBorderRadius') themed('blockBorderRadius');
+        }
+        &::before {
+          content: '';
+          position: absolute;
+          top: -10px;
+          right: 15px;
+          border-width: 0px 10px 10px 10px;
+          border-style: solid;
+          @include themify($themes) {
+            border-color: transparent transparent themed('sidebarBackgroundColor') transparent;
+          }
+        }
+        .sort-option {
+          cursor: pointer;
+          user-select: none;
+          &:not(:last-of-type) {
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+  }
+  .currency-list {
+    padding-bottom: 15px;
+    height: 200px;
+    flex: 1;
+    .currency {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      grid-template-rows: 1.2fr 1fr;
+      grid-template-areas:
+        'label chart'
+        'stats chart';
+      
+      height: 70px;
+      margin: 10px 20px;
+      padding-left: 15px;
+      border: none;
+      cursor: pointer;
+
+      @include themify($themes) {
+        .currency-price-chart {
+          &.up { 
+            .highcharts-color-0 {
+              stroke: themed('positiveColor');
+            }
+          }
+          &.down {
+            .highcharts-color-0 {
+              stroke: themed('negativeColor');
+            }
+          }
+        }
+      }
+
+      .currency-label {
+        grid-area: label;
+        text-transform: uppercase;
+        img::after {
+         font-weight: 700;
+         font-family: 'Font Awesome 5 Pro';
+         content: '\f85c';
+       }
+        @include flex(center, flex-start);
+        .currency-icon {
+          margin-right: 5px;
+        }
+      }
+      .currency-stats {
+        grid-area: stats;
+        align-self: center;
+      }
+      .currency-price-chart {
+        grid-area: chart;
+        width: 100%;
+
+        .highcharts-background {
+          fill: transparent;
+        }
+
+        .highcharts-color-0 {
+          @include themify($themes) {
+            stroke: themed('textColor');
+          }
+          .highcharts-graph {
+            stroke-width: 1.5px;
+          }
+          .highcharts-area {
+            fill: transparent;
+          }
+        }
+      } 
+    }
+  }
+}

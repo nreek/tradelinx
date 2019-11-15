@@ -1,0 +1,60 @@
+.standard-ui-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: 0 3px 6px 0 rgba(0,0,0, 0.16);
+  width: 300px;
+  transition: 0.25s all;
+  transform: translateX(100%);
+  z-index: 5;
+  @include themify($themes) {
+    background: themed('sidebarBackgroundColor');
+  }
+  &.open {
+    transform: translateX(0%);
+  }
+
+  .sidebar-header,
+  .notifications-container {
+    padding: 20px;
+  }
+
+  .scrollbar-container {
+    height: calc(100% - 100px);
+  }
+
+  .sidebar-header {
+    @include flex(center, space-around);
+    height: 100px;
+    border-bottom: 2px solid;
+    @include themify($themes) {
+      border-color: themed('separatorColorDark');
+    }
+
+    .sidebar-username {
+      cursor: pointer;
+      font-size: 12px;
+    }
+  }
+
+  .notification {
+    &:not(:last-of-type) {
+      margin-bottom: 20px;
+    }
+    & > div:not(:last-of-type) {
+      margin-bottom: 7px;
+    }
+    padding: 15px;
+
+    .show-more-link {
+      h3 {
+        cursor: pointer;
+      }
+    }
+
+    .notification-timestamp {
+      text-align: right;
+    }
+  }
+}

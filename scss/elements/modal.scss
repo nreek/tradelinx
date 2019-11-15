@@ -1,0 +1,35 @@
+// Modal
+// *****
+
+.modal-wrapper {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 20;
+    .modal-content {
+      position: relative;
+      width: 600px !important;
+      padding: 30px 40px;
+      text-align: center;
+      background-color: $modal-bg-color;
+      border-radius: 10px;
+      .component-header {
+        padding: 5px 15px;
+      }
+      .modal-close-button {
+        position: absolute;
+        color: $modal-close-button;
+        top: 8px;
+        right: 15px;
+        font-size: 24px;
+        z-index: 21;
+        cursor: pointer;
+      }
+    }
+  }

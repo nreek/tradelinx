@@ -1,0 +1,26 @@
+@import './market-overview/coin-info';
+
+.market-overview.component {
+  .component-content {
+    height: 100px;
+    @media screen and (max-width: $medium-screen-width) {
+      height: 100%;
+      box-shadow: none;
+    }
+  }
+  .price-chart-container {
+    padding-bottom: 20px;
+    border-bottom: 1px solid;
+    @media screen and (max-width: $medium-screen-width) {
+      padding-bottom: 0px;
+      border-bottom: 0px solid;
+    }
+    @include themify($themes) {
+      border-color: themed('separatorColorDark');
+    }
+    .TVWidget,
+    .TVChartContainer {
+      height: 380px;
+    }
+  }
+}

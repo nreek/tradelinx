@@ -1,0 +1,130 @@
+.portfolio-history-chart-container {
+  display: flex;
+  flex-direction: column;
+  .chart-timeframe-select {
+    font-size: 10px;
+    text-align: right;
+    margin: 5px 0;
+    .chart-timeframe-option {
+      padding: 5px 10px;
+      &:last-of-type {
+        text-transform: uppercase
+      }
+    }
+  }
+  #total-value-chart {
+    flex: 1;
+    height: 330px;
+    @media screen and (max-width: $medium-screen-width) {
+      height: 100%;
+      flex: none;
+    }
+    #gradient-0 stop {
+      @include themify($themes) {
+        stop-color: themed('chartColor')
+      }
+      &[offset='0'] {
+        stop-opacity: 0.15;	
+      }
+      &[offset='1'] {
+        stop-opacity: 0;
+      }
+    }
+    .highcharts-container {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: calc(100% - 10px);
+        text-align: left;
+        line-height: normal;
+        z-index: 0;
+        /* #1072 */
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        font-family: $font-family;
+        font-size: 12px;
+    }
+
+    .highcharts-background {
+        fill: rgba(255,255,255,0);
+        fill-opacity: 0;
+    }
+
+    .highcharts-graph {
+      fill: none;
+      stroke-width: 1px;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .highcharts-color-0 {
+        @include themify($themes) {
+          fill: themed('chartColor');
+          stroke: themed('chartColor');
+        }
+        .highcharts-area {
+          fill: url(#gradient-0);
+        }
+    }
+
+    .highcharts-area {
+        fill-opacity: 1;
+        stroke-width: 0;
+    }
+
+    .highcharts-title {
+      @include themify($themes) {
+        fill: themed('textColor');
+      }
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .highcharts-tooltip {
+      padding: 15px;
+      text-align: center;
+      .highcharts-tooltip-box {
+        @include themify($themes) {
+          fill: themed('sidebarBackgroundColor')
+        }
+        fill-opacity: 1;
+        stroke-width: 0;
+      }
+      &>span {
+        padding: 5px;
+      }
+      .tooltip-text {
+        &.chart-date {
+          font-size: 10px;
+          font-family: $font-family;
+          text-transform: initial;
+        }
+        &.chart-amount {
+          font-weight: $light;
+          margin-top: 10px;
+        }
+      }
+    }
+
+    .highcharts-grid-line {
+      @include themify($themes) {
+        stroke: themed('separatorColorDark');
+      }
+      stroke-opacity: 0.25;
+    }
+
+    .highcharts-axis-line {
+      fill: none;
+      stroke: none;
+    }
+
+    .highcharts-axis-labels {
+      font-size: 1em;
+      font-family: $font-family;
+      text-transform: initial;
+    }
+
+    .highcharts-tick {
+      stroke: none;
+    }
+  }
+}

@@ -1,0 +1,127 @@
+@import 'global-theme.scss';
+
+$themes: (
+  light: (
+    backgroundColor: $light-light-color-1,
+    textColor: $light-dark-color-1,
+    navBackgroundColor: $light-dark-color-2,
+    navIconInactiveColor: $light-light-color-1,
+    navIconActiveColor: $light-brand-color-primary,
+    headerBackgroundColor: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0)),
+    sidebarBackgroundColor: $light-light-color-4,
+    componentHeaderBackgroundColor: $light-dark-color-2,
+    componentHeaderTextColor: $light-light-color-1,
+    componentBackgroundColor: $light-light-color-3,
+    componentBorderRadius: 0px,
+    blockBackgroundColor: $light-light-color-6,
+    lineItemBackgroundColor: $light-gray-color,
+    buySellBackgroundColor: $light-light-color-1,
+    blockHoverBackgroundColor: $light-light-color-1,
+    blockActiveBorderColor: $light-brand-color-primary,
+    blockBorderRadius: 0px,
+    tagBackgroundColor: transparent,
+    tagActiveBackgroundColor: $light-light-color-2,
+    tagActiveTextColor: $light-brand-color-primary,
+    tagHoverTextColor: $light-brand-color-secondary,
+    tabDotSelected: $light-gray-color,
+    buttonColor: $light-brand-color-primary,
+    buttonTextColor: $light-light-color-1,
+    buttonHoverColor: $light-brand-color-secondary,
+    buttonActiveColor: rgba($light-brand-color-secondary, 0.65),
+    buttonDisabledColor: $light-light-color-5,
+    buttonDisabledTextColor: $light-dark-color-1,
+    separatorColorLight: $light-light-color-4,
+    separatorColorDark: rgba($light-dark-color-1, 0.25),
+    notificationColor: $light-notification-color,
+    positiveColor: $light-positive-color,
+    negativeColor: $light-negative-color,
+    favoriteColor: $light-favorite-color,
+    inputBorderColor: $light-light-color-5,
+    inputFocusBorderColor: $light-brand-color-primary,
+    inputBackgroundColor: transparent,
+    chartColor: $light-brand-color-primary,
+    chartColorSubdued: $light-brand-color-secondary,
+    scrollbarTrackColor: transparent,
+    scrollbarThumbColor: $light-dark-color-1,
+    scrollbarThumbBorderRadius: 0px,
+    alternateRowColor: #ebebeb,
+    spinnerColor: $light-brand-color-primary,
+    // https://blog.union.io/code/2017/08/10/img-svg-fill/
+      // Refer to this if below value seems weird to you:
+      cryptoIconColor: invert(0.5),
+    checkboxActive: $light-brand-color-primary,
+  ),
+  dark: (
+    backgroundColor: $dark-dark-color-3,
+    textColor: $dark-light-color-1,
+    navBackgroundColor: $dark-dark-color-4,
+    navIconInactiveColor: $dark-light-color-1,
+    navIconActiveColor: $dark-brand-color-primary,
+    headerBackgroundColor: transparent,
+    sidebarBackgroundColor: $dark-dark-color-1,
+    componentHeaderBackgroundColor: $dark-dark-color-4,
+    componentHeaderTextColor: $dark-light-color-1,
+    componentBackgroundColor: $dark-dark-color-4,
+    componentBorderRadius: 20px,
+    blockBackgroundColor: $dark-dark-color-3,
+    lineItemBackgroundColor: $dark-dark-color-3,
+    buySellBackgroundColor: $dark-dark-color-3,
+    blockHoverBackgroundColor: $dark-dark-color-2,
+    blockActiveBorderColor: $dark-brand-color-primary,
+    blockBorderRadius: 20px,
+    tagBackgroundColor: transparent,
+    tagActiveBackgroundColor: $dark-dark-color-2,
+    tagActiveTextColor: $dark-brand-color-primary,
+    tagHoverTextColor: $dark-brand-color-secondary,
+    tabDotSelected: $dark-dark-color-3,
+    buttonColor: $dark-brand-color-primary,
+    buttonHoverColor: $dark-brand-color-secondary,
+    buttonActiveColor: rgba($dark-brand-color-secondary, 0.65),
+    buttonTextColor: $dark-light-color-2,
+    buttonDisabledColor: $dark-dark-color-2,
+    buttonDisabledTextColor: $dark-light-color-4,
+    separatorColorLight: $dark-light-color-3,
+    separatorColorDark: rgba($dark-dark-color-1, 0.25),
+    notificationColor: $dark-brand-color-primary,
+    positiveColor: $dark-positive-color,
+    negativeColor: $dark-negative-color,
+    favoriteColor: $dark-favorite-color,
+    inputBorderColor: $dark-light-color-4,
+    inputFocusBorderColor: $dark-brand-color-primary,
+    inputBackgroundColor: transparent,
+    chartColor: $dark-brand-color-primary,
+    chartColorSubdued: $dark-brand-color-secondary,
+    scrollbarTrackColor: transparent,
+    scrollbarThumbColor: $dark-dark-color-2,
+    scrollbarThumbBorderRadius: 20px,
+    alternateRowColor: $dark-dark-color-2,
+    spinnerColor: $dark-brand-color-primary,
+    // https://blog.union.io/code/2017/08/10/img-svg-fill/
+      // Refer to this if below value seems weird to you:
+      cryptoIconColor: invert(1),
+    checkboxActive: $dark-brand-color-primary,
+  ),
+);
+
+@mixin themify($themes) {
+  @each $theme, $map in $themes {
+    .theme-#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), '#{$key}');
+        $theme-map: map-merge(
+          $theme-map,
+          (
+            $key: $value,
+          )
+        ) !global;
+      }
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}

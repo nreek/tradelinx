@@ -1,0 +1,80 @@
+// All Tables
+// **********
+.table {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    overflow: auto;
+    // Header & Row grid structure
+    .table-header,
+    .table-row {
+      display: grid;
+      padding: 10px 15px;
+      min-width: 750px;
+      min-height: 21px;
+      box-sizing: border-box;
+      &.open-orders-header,
+      &.open-orders-row {
+        grid-template-columns: repeat(12, 1fr);
+      }
+      &.filled-orders-header,
+      &.filled-orders-row {
+        grid-template-columns: repeat(7, 1fr);
+      }
+      &.inactive-orders-header,
+      &.inactive-orders-row {
+        grid-template-columns: repeat(6, 1fr);
+      }
+      &.withdraw-status-header,
+      &.withdraw-status-row {
+        grid-template-columns: repeat(6, 1fr);
+        min-width: 600px;
+      }
+      &.trade-reports-header,
+      &.trade-reports-row {
+        grid-template-columns: repeat(9, 1fr);
+      }
+    }
+    // Header & Row Styling
+    .table-header {
+      font-size: 13px;
+      box-sizing: border-box;
+    }
+    .table-rows {
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+      font-size: 11px;
+      border-top: 1px solid $order-table-border-color;
+      min-width: 750px;
+      &.withdraw-status-rows {
+        min-width: 600px;
+      }
+      .table-row {
+        &:nth-of-type(odd) {
+          background: $order-table-alternate-row-color;
+        }
+        &:hover {
+          background: $order-table-row-hover-highlight;
+        }
+        span {
+          padding: 0px 2.5px;
+        }
+        .buy {
+          color: $order-table-buy-color;
+        }
+        .sell {
+          color: $order-table-sell-color;
+        }
+        .open-orders-actions,
+        .withdraw-status-actions,
+        .trade-reports-actions {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .table-bottom-bar {
+    padding: 10px;
+    border-top: 1px solid $order-book-table-border-color;
+  }

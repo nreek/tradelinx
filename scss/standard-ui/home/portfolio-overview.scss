@@ -1,0 +1,96 @@
+@import '../../vendor/depth-chart';
+@import './portfolio-overview/portfolio-history-chart';
+@import './portfolio-overview/portfolio-breakdown-chart';
+
+.portfolio-overview.component .component-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 355px 75px 1fr 100px;
+  grid-template-areas:
+    'history   history'
+    'breakdown balance'
+    'breakdown stats'
+    'details   stats';
+  margin-bottom: 87px;
+  & > div {
+    @include themify($themes) {
+      border-color: themed('separatorColorDark');
+    }
+  }
+
+  .portfolio-history-chart-container {
+    grid-area: history;
+    border-bottom: 1px solid;
+    padding: 15px 20px;
+  }
+
+  .portfolio-breakdown-chart-container {
+    grid-area: breakdown;
+    border-right: 1px solid;
+    padding: 0px 20px;
+  }
+
+  .portfolio-balance-container {
+    grid-area: balance;
+    border-bottom: 1px solid;
+  }
+
+  .portfolio-details-container {
+    grid-area: details;
+    border-top: 1px solid;
+    border-right: 1px solid;
+  }
+
+  .portfolio-stats-container {
+    grid-area: stats;
+  }
+
+  .portfolio-balance-container,
+  .portfolio-details-container,
+  .portfolio-stats-container {
+    @include flex(flex-start, center, column);
+    height: 100%;
+    padding: 0px 30px;
+    h2 {
+      margin: 10px 0px;
+      span {
+        font-weight: $bold;
+      }
+    }
+  }
+  @media screen and (max-width: $medium-screen-width) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 350px 75px 1fr 100px;
+    grid-template-areas:
+      'history   history'
+      'balance balance'
+      'breakdown breakdown'
+      'details stats';
+
+    .portfolio-history-chart-container {
+      grid-area: history;
+    }
+
+    .portfolio-breakdown-chart-container {
+      grid-area: breakdown;
+      align-items: center;
+    }
+
+    .portfolio-balance-container {
+      align-items: center;
+      grid-area: balance;
+      text-align: left;
+    }
+
+    .portfolio-details-container {
+      grid-area: details;
+      align-items: center;
+    }
+
+    .portfolio-stats-container {
+      grid-area: stats;
+      border-top: 1px solid;
+    }
+  }
+}

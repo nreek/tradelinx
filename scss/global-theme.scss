@@ -1,0 +1,121 @@
+@import 'vendor/fontawesome/fontawesome';
+@import 'vendor/fontawesome/solid';
+@import 'vendor/fontawesome/regular';
+@import 'vendor/fontawesome/light';
+@import 'vendor/fontawesome/brands';
+
+// Fonts
+$light: 300;
+$regular: 400;
+$medium: 500;
+$bold: 700;
+
+
+// Screen widths
+$medium-screen-width: 768px;
+
+@font-face {
+  font-family: 'Lato';
+  src: url('../webfonts/Lato-Light.ttf');
+  font-weight: $light;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Lato';
+  src: url('../webfonts/Lato-Regular.ttf');
+  font-weight: $regular;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Lato';
+  src: url('../webfonts/Lato-Bold.ttf');
+  font-weight: $bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../webfonts/Montserrat-Light.ttf');
+  font-weight: $light;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../webfonts/Montserrat-Medium.ttf');
+  font-weight: $medium;
+  font-style: normal;
+}
+
+$font-family: 'Lato', sans-serif;
+$font-awesome: 'Font Awesome 5 Pro', sans-serif;
+
+// Theme Color Palettes
+// Numbered colors should go in order of brightness
+// Naming convention: ${theme name}-{descriptive variable name}
+
+// LIGHT THEME
+$light-light-color-1: #FFFFFF; // white
+$light-light-color-2: #F8F8F8; // off-white
+$light-light-color-3: #F5F5F5; // off-white, used as separator
+$light-light-color-4: #D6D6D6; // lightest grey, sidebar background
+$light-light-color-5: #A0A0A0; // light grey
+$light-light-color-6: #fafafa; // light grey
+$light-dark-color-1: #707070; // med grey
+$light-dark-color-2: #3C3C3C; // dark grey
+$light-positive-color: #00C9FF; // teal
+$light-negative-color: #EB4F3B; // watermelon
+$light-brand-color-primary: #7ACD45; // shift-green
+$light-brand-color-secondary: #5CA32E; // shift-green-subdued
+$light-notification-color: #F1661D; // orange
+$light-favorite-color: #FFED8B; // yellow
+$light-gray-color: #ebebeb;
+
+$light-blue : #ECD7FF;
+
+// DARK THEME
+$dark-light-color-1: #FFFFFF; // white
+$dark-light-color-2: #F8F8F8; // off-white
+$dark-light-color-3: #F5F5F5; // off-white
+$dark-light-color-4: #A0A0A0; // light grey
+$dark-dark-color-1: #707070; // med grey
+$dark-dark-color-2: #3C3C3C; // dark grey
+$dark-dark-color-3: #292929; // darker grey
+$dark-dark-color-4: #212121; // almost black
+$dark-positive-color: #00C9FF; // teal
+$dark-negative-color: #EB4F3B; // watermelon
+$dark-brand-color-primary: #FF0093; // pink
+$dark-brand-color-secondary: rgba($dark-brand-color-primary, 0.75); // pink, 75% opacity
+$dark-favorite-color: #FFED8B; // yellow
+
+// MARKETING
+$light-color-1: #fff;
+$light-color-2: #eee; // light grey
+$light-color-3: white; // med grey
+$dark-color-1: #3a2050; // dark blue w grey
+$dark-color-2: #402358; // darker blue w grey
+$dark-color-3: #0c0c14; // almost black
+$dark-color-4: #000000; // black
+$dark-color-5: #323232; // black
+$dark-color-6: #1b1b1b; // black
+$dark-color-7: #351D49; // dark blue
+$bid-color: rgba(19, 161, 181, 1); // teal (indicator) #13a1b5
+$ask-color: #ca0b0b; // watermelon (indicator)
+$trade-red: #EF5350;
+$trade-green: #26A69A;
+$default-font-color: $light-color-3;
+$brand-color-primary: $dark-color-2; // shift-green
+$error-color: #ff5353;
+$success-solor: $brand-color-primary;
+$show-hide-eye-color: #757575;
+
+@mixin default-hide-show-password($x:-5px, $y:-25px, $position: inherit, $float: right) {
+  width: 100%;
+  i {
+    color: $show-hide-eye-color;
+    cursor: pointer;
+    transform: translate($x,$y);
+    float: $float;
+    position: $position;
+  }
+}
+
+

@@ -1,0 +1,81 @@
+// TODO: REFACTOR OR DELELE
+
+// @import 'global-theme.scss';
+// @import 'marketing-theme';
+// @import 'trade-theme';
+
+// .maintenance-message {
+//   height: 60px;
+//   width: 100%;
+//   box-sizing: border-box;
+//   &--closed {
+//     display: none;
+//   }
+//   &--marketing-ui {
+//     background: $splash-hero-banner-wrapper-bg;
+//     background-size: cover;
+//     margin-top: -2px;
+//   }
+//   &--simple-ui,
+//   &--trade-ui {
+//     background-color: $dark-color-1;
+//   }
+//   @media (min-width: $medium-min-width) {
+//     height: 75px;
+//     padding: 0.5em 0 0.7em;
+//     &--simple-ui {
+//       background-color: $dark-color-3;
+//     }
+//     &--trade-ui {
+//       background-color: $header-bg-color;
+//       padding: 0.5em;
+//     }
+//   }
+//   &-container {
+//     height: 100%;
+//     padding: .5em 0;
+//     box-sizing: border-box;
+//     border: 1px solid #fff;
+//     font-family: $marketing-font-family;
+//     font-weight: 400;
+//     font-size: 0.6em;
+//     margin: 0 auto;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-around;
+//     align-items: center;
+//     position: relative;
+//     &--marketing-ui {
+//       width: 90%;
+//     }
+//     &--simple-ui {
+//       max-width: 1000px;
+//     }
+//     @media (min-width: $medium-min-width) {
+//       font-size: 0.8em;
+//     }
+//     @media (min-width: $large-min-width) {
+//       font-size: 0.9em;
+//     }
+//     @media (min-width: $xxx-large-min-width) {
+//       &--marketing-ui {
+//         width: 70%;
+//       }
+//     }
+//   }
+//   &-title,
+//   &-content,
+//   &-close {
+//     color: $maintenance-mode-content;
+//   }
+//   &-close {
+//     position: absolute;
+//     top: 0.3em;
+//     right: 0.3em;
+//     font-size: 2em;
+//     cursor: pointer;
+//     @media (min-width: $medium-min-width) {
+//       font-size: 1.5em;
+//     }
+//   }
+// }

@@ -1,0 +1,73 @@
+@import 'themes.scss';
+@import 'mixins.scss';
+
+// import UI element stylesheets
+@import 'standard-nav.scss';
+@import 'standard-mobile-nav.scss';
+@import 'standard-header.scss';
+@import 'standard-sidebar.scss';
+
+// import page-level stylesheets
+@import 'standard-home.scss';
+@import 'standard-trade.scss';
+@import 'standard-wallet.scss';
+@import 'standard-kyc.scss';
+@import 'standard-settings.scss';
+@import 'standard-login.scss';
+@import 'standard-signup.scss';
+
+.standard-ui-container {
+  @include themify($themes) {
+    background: themed('backgroundColor');
+    color: themed('textColor');
+  }
+  height: 100vh;
+
+  .standard-ui {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    grid-template-rows: 100px 1fr;
+    grid-template-areas:
+      'nav header'
+      'nav main';
+    height: 100%;
+
+    .standard-ui-nav {
+      grid-area: nav;
+      z-index: 1;
+      // For .standard-ui-nav styling, edit standard-nav.scss
+    }
+
+    .standard-ui-header {
+      grid-area: header;
+      // For .standard-ui-header styling, edit standard-header.scss
+    }
+
+    .standard-ui-content {
+      grid-area: main;
+      // For individual page styling, refer to that page's subfolder
+    }
+
+    .standard-ui-sidebar {
+      // For .standard-ui-sidebar styling, edit standard-sidebar.scss
+    }
+  }
+  @media screen and (max-width: $medium-screen-width) {
+    .standard-ui {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 60px;
+      grid-template-areas:
+        'main'
+        'nav';
+      @include themify($themes) {
+        background: themed('componentBackgroundColor');
+      }
+      .standard-ui-content {
+        @include themify($themes) {
+          background: themed('componentBackgroundColor');
+        }
+      }
+    }
+  }
+}

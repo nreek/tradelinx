@@ -1,0 +1,45 @@
+@import './wallet/wallet-balances.scss';
+@import './wallet/deposit-withdraw.scss';
+@import './wallet/wallet-history.scss';
+
+.wallet {
+  display: grid;
+  grid-template-columns: 1.5fr 1.5fr 1fr;
+  grid-template-areas: 'balances dep-WD history';
+  grid-gap: 25px;
+  margin: 0px 25px 25px;
+
+  // For individual component styling, refer to their separate stylesheets (imported above)
+  .wallet-balances {
+    grid-area: balances;
+  }
+
+  .deposit-withdraw {
+    grid-area: dep-WD;
+  }
+
+  .wallet-history {
+    grid-area: history;
+  }
+  @media screen and (max-width: $medium-screen-width) {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 'balances' 'dep-WD' 'history';
+    grid-gap: 0px;
+    margin: 0px;
+
+    // For individual component styling, refer to their separate stylesheets (imported above)
+    .wallet-balances {
+      height: 100%;
+    }
+
+    .deposit-withdraw {
+      height: 100%;
+    }
+
+    .wallet-history {
+      height: 100%;
+    }
+  }
+}

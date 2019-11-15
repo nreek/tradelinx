@@ -1,0 +1,50 @@
+// import component-level stylesheets
+@import './kyc/account-levels';
+@import './kyc/personal-details';
+@import './kyc/document-verification';
+
+.profile {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1.5fr;
+  grid-template-areas: 'account-levels personal-details document-verification';
+  grid-gap: 25px;
+  margin: 0px 25px 25px;
+
+  // For individual component styling, refer to their separate stylesheets (imported above)
+  .account-levels {
+    grid-area: account-levels;
+  }
+
+  .personal-details {
+    grid-area: personal-details;
+  }
+
+  .document-verification {
+    grid-area: document-verification;
+  }
+  @media screen and (max-width: $medium-screen-width) {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 'account-levels' 'personal-details' 'document-verification';
+    grid-gap: 0px;
+    margin: 0px;
+
+    // For individual component styling, refer to their separate stylesheets (imported above)
+    .account-levels {
+      grid-area: account-levels;
+      height: 100%;
+    }
+
+    .personal-details {
+      grid-area: personal-details;
+      height: 100%;
+      box-shadow: none;
+    }
+
+    .document-verification {
+      grid-area: document-verification;
+      height: 100%;
+    }
+  }
+}

@@ -1,0 +1,106 @@
+.profile-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 100px 100px 100px 100px 1fr;
+  grid-template-areas:
+    'profile-pic'
+    'display-name-container'
+    'display-name-container'
+    'display-name-container'
+    'local-currency-container';
+
+  .profile-pic {
+    @include themify($themes) {
+      border-bottom: 1px solid themed('separatorColorDark');
+    }
+    grid-area: 'profile-pic';
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: 'icon title' 'icon subtitle' 'icon upload';
+    align-items: center;
+    padding: 20px 40px;
+    &:not(:last-of-type) {
+      border-bottom: 1px solid;
+      @include themify($themes) {
+        border-color: themed('separatorColorDark');
+      }
+    }
+    img {
+      grid-area: icon;
+      height: 40px;
+      width: 40px;
+      border-radius: 100%;
+      border: 1px solid rgba(112, 112, 112, 0.25);
+    }
+    h2 {
+      text-transform: uppercase;
+      grid-area: title;
+    }
+    p {
+      grid-area: subtitle;
+    }
+    .document-upload {
+      grid-area: upload;
+      @include flex(center, flex-start);
+      & > * {
+        font-size: 10px;
+        margin-right: 5px;
+      }
+      h4 {
+        text-transform: uppercase;
+      }
+      button.file-upload {
+        @extend .secondary-button;
+        background-color: transparent;
+        box-shadow: none;
+      }
+      .download-button {
+        cursor: pointer;
+        height: 11px;
+      }
+    }
+  }
+  .display-name-container {
+    grid-area: 'display-name-container';
+    display: grid;
+    padding: 20px 40px;
+    text-transform: uppercase;
+    align-items: center;
+    @include themify($themes) {
+      border-bottom: 1px solid themed('separatorColorDark');
+    }
+    label,
+    input {
+      display: block;
+      font-weight: bold;
+      @media screen and (max-width: $medium-screen-width) {
+        width: 100%;
+      }
+    }
+  }
+  .local-currency-container {
+    grid-area: 'local-currency-container';
+    align-items: flex-start;
+    padding: 20px 40px;
+    text-transform: uppercase;
+    align-items: center;
+    @include themify($themes) {
+      border-bottom: 1px solid themed('separatorColorDark');
+    }
+    label,
+    input {
+      top: 0;
+      width: 30%;
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+      @media screen and (max-width: $medium-screen-width) {
+        width: 100%;
+      }
+    }
+    button {
+      margin-top: 40px;
+    }
+  }
+}

@@ -1,0 +1,235 @@
+// TODO: REFACTOR OR DELETE
+
+@import 'global-theme';
+
+
+$white: #fff;
+// Common Element Styles
+$active-font-color: $light-color-1;
+$highlight-color: rgba(white, 0.25);
+$hover-font-color: $light-color-1;
+
+$simple-ui-bg: $dark-color-7;
+
+// BUTTON COLORS
+$button-bg-color: $brand-color-primary;
+
+// SIMPLE UI BUTTONS
+$button-simple-ui-color: $light-color-1;
+$button-simple-ui-bg-color: $button-bg-color;
+$button-font-color: $default-font-color;
+
+$button-simple-ui-hover-bg-color: lighten($button-simple-ui-bg-color, 15%);
+$button-simple-ui-disabled-bg-color: rgba($button-simple-ui-bg-color, 0.4);
+$button-simple-ui-active-bg-color: darken($button-simple-ui-bg-color, 10%);
+
+
+// FORM CONTROL COLORS
+$form-field-border-color: $light-color-3;
+$form-field-border-color-active: $dark-color-3;
+$form-field-border-color-error: red;
+$form-field-input-bg-color: $light-color-1;
+$form-field-text-color: $dark-color-4;
+
+$alternate-row-color: #5E4375;
+
+$input-bg-color: transparent;
+$input-font-color: $default-font-color;
+$input-border-color: $light-color-3;
+
+$loader-alt-ring-border-color: $dark-color-4;
+
+$modal-button-color: $light-color-1;
+$modal-button-bg-color: $brand-color-primary;
+$modal-button-disabled-bg-color: rgba($brand-color-primary, 0.4);
+
+$modal-file-upload-button-bg: $light-color-3;
+$modal-file-upload-button-bg-disabled: rgba($light-color-3, 0.4);
+
+// Datepicker colors
+$datepicker-background-top-color: $brand-color-primary;
+
+
+
+// Simple UI Sidebar 
+$simple-ui-sidebar-bg: $dark-color-2;
+$simple-ui-sidebar-text-color: $light-color-3;
+$simple-ui-sidebar-mobile-border-color: #c8c8c8;
+
+$simple-ui-nav-link-color: $light-color-3;
+$simple-ui-nav-link-visited-color: inherit;
+$simple-ui-nav-link-hover-color: $light-color-2;
+$simple-ui-nav-link-hover-bg-color: $dark-color-1;
+$simple-ui-nav-link-active-color: $brand-color-primary;
+
+
+// Simple UI Main Container
+$simple-ui-main-bg: linear-gradient(#553D6A, #553D6A); // used on background-image propery
+$simple-ui-font-color: $light-color-1;
+$simple-ui-header-font-color: white;
+
+$simple-ui-header-link-color: white;
+$simple-ui-header-link-hover-color: $white;
+$simple-ui-header-link-active-color: $simple-ui-nav-link-active-color;
+
+$simple-ui-header-user-dropdown-bg: $white;
+$simple-ui-header-user-dropdown-text-color: $dark-color-4;
+$simple-ui-header-user-dropdown-link-color: $dark-color-4;
+
+$simple-ui-hamburger-active-color: $brand-color-primary;
+
+$simple-ui-modal-font-color: $dark-color-4;
+
+// kyc modal
+$simple-ui-kyc-verification-pending-link: $dark-color-4;
+$simple-ui-kyc-download-label: $dark-color-1;
+$simple-ui-kyc-download-text-color: $dark-color-1;
+$simple-ui-kyc-file-name-input-border:  $light-color-3;
+$simple-ui-kyc-download-button: $light-color-1;
+$simple-ui-kyc-download-button-bg: $brand-color-primary;
+$simple-ui-kyc-download-button-bg-hover: lighten($brand-color-primary, 10%);
+$simple-ui-kyc-input-border: $input-border-color;
+
+$simple-ui-check-svg-color: $light-color-2;
+
+// Simple UI Buy/sell 
+$simple-ui-buy-sell-selector-text: $light-color-3;
+$simple-ui-buy-sell-selector-active-tab: $light-color-1;
+$simple-ui-buy-sell-selector-active-tab-bg: $brand-color-primary;
+
+$simple-ui-buy-sell-quantity-bg: $brand-color-primary;
+$simple-ui-buy-sell-quantity-border-color: $brand-color-primary;
+
+$simple-ui-buy-sell-amount-border-color: $brand-color-primary;
+
+$simple-ui-buy-sell-amount-for-color: $light-color-3;
+
+$simple-ui-buy-sell-modal-color: $dark-color-4;
+$simple-ui-buy-sell-modal-title-border: rgb(200, 200, 200);
+
+$simple-ui-buy-sell-action-button-background-hover: lighten($brand-color-primary, 10%);
+
+
+// Simple UI Custom Buy/Sell
+$buy-sell-custom-selector-color: $light-color-3;
+$buy-sell-custom-selector-option-active: $light-color-1;
+$buy-sell-custom-selector-option-active-bg: $brand-color-primary;
+$buy-sell-custom-input-color: $light-color-1;
+$buy-sell-custom-input-border-color: $brand-color-primary;
+$buy-sell-custom-input-bg: none;
+$buy-sell-custom-button-disabled-bg: rgba($brand-color-primary, 0.7);
+
+// Simple UI My Accounts
+$my-accts-table-header-border-color: $light-color-2;
+$my-accts-table-row-hover-color: $light-color-2;
+$my-accts-table-row-hover-bg-color: $dark-color-1;
+$my-accounts-table-alternate-row-color: $alternate-row-color;
+$my-accts-current-balances-cell-hover-bg: rgba($light-color-3, 0.25);
+
+$my-accts-current-balances-clear-sort-button: $light-color-2;
+$my-accts-current-balances-clear-sort-button-hover: $error-color;
+
+$my-accts-balances-filter-color: $input-font-color;
+$my-accts-balances-filter-bg-color: transparent;
+$my-accts-balances-filter-border-color: $light-color-3;
+$my-accts-balances-filter-border-focus-color: $light-color-1;
+
+$my-acct-product-action-buttons-highlight: $light-color-1;
+
+$my-accts-deposit-input-color: $dark-color-4;
+$my-accts-deposit-input-bg-color: none;
+$my-accts-deposit-input-border-color: $light-color-3;
+
+$my-accts-deposit-submit-button-hover-bg: $brand-color-primary;
+
+$my-accts-fiat-modal-link-color: $dark-color-2;
+$my-accts-fiat-modal-link-hover-color: $light-color-3;
+
+$my-accts-crypto-qr-code-bg-color: $light-color-1;
+$my-accts-crypto-qr-code-icon-color: $dark-color-6;
+
+$my-accts-crypto-address-blurb-bg: $light-color-1;
+
+$my-accts-crypto-address-code-bg: $light-color-1;
+$my-accts-crypto-address-code-span-color: $dark-color-6;
+
+$my-accts-deposit-withdraw-font-color: $dark-color-4;
+
+// Settings 
+$settings-auth-key-color: $input-font-color;
+
+$settings-input-color: $input-font-color;
+$settings-input-border-color: $input-bg-color;
+$settings-input-bg-color: $input-bg-color;
+
+// good for selects as well
+$settings-input-disabled-border-color: $input-bg-color;
+
+$settings-change-password-input-color: $dark-color-4;
+$settings-change-password-input-bg-color: none;
+$settings-change-password-input-border-color: $light-color-3;
+
+$settings-account-form-field-label: $light-color-1;
+
+$settings-input-autofill-color: $input-font-color;
+$settings-input-autofill-bg-color: $input-bg-color;
+$settings-input-autofill-border-color: $input-bg-color;
+
+$settings-select-color: $input-font-color;
+$settings-select-bg-color: $input-bg-color;
+$settings-select-border-color: $input-bg-color;
+
+$settings-textarea-color: $input-font-color;
+$settings-textarea-bg-color: $input-bg-color;
+$settings-textarea-border-color: $input-bg-color;
+
+$settings-datepicker-input-color: $input-font-color;
+$settings-datepicker-input-bg-color: $input-bg-color;
+$settings-datepicker-input-border-color: $input-bg-color;
+
+$settings-acct-form-active-input-color: $input-font-color;
+$settings-acct-form-active-input-bg-color: $input-bg-color;
+$settings-acct-form-active-input-border-color: $light-color-1;
+$settings-acct-form-active-input-caret-color: $light-color-1;
+$settings-acct-form-active-input-box-shadow: #33354d;
+$setting-select-option-bg: $dark-color-1;
+$settings-select-option-color: $light-color-1;
+
+//$settings-acct-form-disabled-input-color: $input-font-color;
+$settings-acct-form-disabled-input-border-color: $input-bg-color;
+//$settings-acct-form-disabled-input-bg-color: $input-bg-color;
+
+$settings-acct-form-disabled-select-border-color: $input-bg-color;
+
+$settings-country-select-color: $light-color-1;
+$settings-country-select-bg-color: $input-bg-color;
+$settings-country-select-border-color: $input-bg-color;
+
+
+$help-answer-button-bg-color: transparent;
+
+$modal-bg-color: $light-color-1;
+$modal-close-button: $dark-color-4;
+
+$paginator-active-font-color: $active-font-color;
+
+$component-bg-color: $dark-color-2;
+$component-header-bg-color: $dark-color-1;
+$component-header-tab-divider-color: $light-color-3;
+$component-header-active-font-color: $active-font-color;
+$component-header-inactive-font-color: $default-font-color;
+
+$trade-ui-button-selected-bg-color: $alternate-row-color;
+$responsive-menu-bg-color: $dark-color-3;
+$responsive-menu-outline-color: $light-color-2;
+$responsive-menu-hover-font-color: $hover-font-color;
+
+$table-border-color: $light-color-2;
+$table-body-text-color: $light-color-3;
+
+$order-table-alternate-row-color: $alternate-row-color;
+$order-table-row-hover-highlight: $highlight-color;
+$order-table-border-color: $table-border-color;
+$order-table-buy-color: $trade-green;
+$order-table-sell-color: $trade-red;
+$order-book-table-border-color: $table-border-color;

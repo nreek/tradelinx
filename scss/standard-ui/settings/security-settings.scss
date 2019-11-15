@@ -1,0 +1,227 @@
+.security-settings {
+  @media screen and (max-width: $medium-screen-width) {
+    height: 90vh;
+  }
+  .component-content {
+    @media screen and (max-width: $medium-screen-width) {
+      padding-bottom: 85px;
+    }
+  }
+  .phone-number {
+    padding: 20px 40px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-row-gap: 5px;
+    grid-template-areas: 'title' 'subtitle' 'upload';
+    align-items: center;
+    h2 {
+      text-transform: uppercase;
+      grid-area: title;
+    }
+    p {
+      grid-area: subtitle;
+    }
+    input {
+      width: 160px;
+    }
+    a {
+      @include themify($themes) {
+        color: themed('tagActiveTextColor');
+      }
+    }
+    .document-upload {
+      grid-area: upload;
+      @include flex(center, flex-start);
+      & > * {
+        font-size: 10px;
+        margin-right: 5px;
+      }
+      h4 {
+        text-transform: uppercase;
+      }
+      button.file-upload {
+        @extend .secondary-button;
+        background-color: transparent;
+        box-shadow: none;
+      }
+      .download-button {
+        cursor: pointer;
+        height: 11px;
+      }
+    }
+    @include themify($themes) {
+      border-bottom: 1px solid themed('separatorColorDark');
+    }
+  }
+
+  .two-fa {
+    padding: 20px 40px;
+    align-items: center;
+    @include themify($themes) {
+      border-bottom: 1px solid themed('separatorColorDark');
+    }
+    h2 {
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .qr-container {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      grid-template-rows: 1fr;
+      grid-row-gap: 20px;
+      grid-column-gap: 20px;
+      align-items: center;
+      @media screen and (max-width: $medium-screen-width) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .two-fa-input-fields {
+      display: grid;
+      grid-template-columns: 160px 160px;
+      grid-template-rows: 1fr;
+      grid-row-gap: 20px;
+      grid-column-gap: 20px;
+      align-items: center;
+      margin-top: 20px;
+      @media screen and (max-width: $medium-screen-width) {
+        grid-template-columns: 160px;
+      }
+      input {
+        width: 100%;
+      }
+      i {
+        margin-top: 8px;
+      }
+    }
+
+    .two-fa-description {
+      margin-bottom: 20px;
+    }
+    .qr-code {
+      img {
+        height: 120px;
+        width: 120px;
+      }
+    }
+    .code-container {
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+      font-size: 12px;
+      .authenticator-key,
+      .key,
+      .generate {
+        margin-bottom: 10px;
+        font-size: 12px;
+      }
+      .key {
+        font-weight: bold;
+        @media screen and (max-width: $medium-screen-width) {
+          max-width: 300px;
+          line-height: 20px;
+          overflow-wrap: break-word;
+        }
+      }
+      .generate {
+        @include themify($themes) {
+          color: themed('buttonColor');
+        }
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+    }
+    .key-inputs {
+      .field-details {
+        margin-bottom: 10px;
+      }
+    }
+    .password-input {
+      .field-details {
+        margin-bottom: 10px;
+      }
+    }
+    .action-buttons {
+      button {
+        width: 60px;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .two-fa-confirmation {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12px;
+    @include themify($themes) {
+      color: themed('buttonColor');
+    }
+  }
+
+  .hide-show-password span {
+    color: #757575;
+    cursor: pointer;
+    transform: translate(140px, -18px);
+  }
+
+  .password-reset {
+    padding: 20px 40px;
+
+    @include themify($themes) {
+      border-bottom: 1px solid themed('separatorColorDark');
+    }
+    @media screen and (max-width: $medium-screen-width) {
+      @include themify($themes) {
+        border-bottom: 0px solid themed('separatorColorDark');
+      }
+    }
+    .text-input {
+      font-weight: 300;
+      display: block;
+      margin: 10px 0px;
+      .field-label {
+        margin-bottom: 5px;
+      }
+      .field-content {
+        position: relative;
+        input {
+          // margin-top: 5px;
+          width: 160px;
+        }
+        .form-icon-container {
+          position: absolute;
+          top: -5px;
+          left: 142px;
+          @include themify($themes) {
+            color: themed('negativeColor');
+          }
+        }
+        .hide-show-password {
+          position: relative;
+          i {
+            position: absolute;
+            left: 165px;
+            @include vertical-align();
+          }
+        }
+      }
+    }
+    input {
+      display: block;
+    }
+    p {
+      margin-top: -12px;
+    }
+    .form-errors {
+      font-size: 12px;
+      font-weight: bold;
+      margin-top: 20px;
+      color: red;
+    }
+    button {
+      width: 60px;
+    }
+  }
+}

@@ -1,0 +1,116 @@
+// Generic Component Styling
+// *************************
+.component {
+    background-color: $component-bg-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0px;
+    max-width: calc(100vw - 35px);
+    width: 100%;
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+    .component-container {
+      .component-header {
+        justify-content: space-between;
+        align-items: center;
+        height: 45px;
+        // padding: 5px 0px;
+        box-sizing: border-box;
+        position: relative;
+        text-align: center;
+        border-bottom: 2px solid #c8c8c8;
+        padding: 0;
+      }
+    }
+  }
+  
+  
+  
+  .component-container {
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 0px;
+    .component-header {
+      .component-tabs {
+        // display: flex;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr;
+        li {
+          // padding: 5px 5px;
+          color: $component-header-active-font-color;
+          font-weight: $bold;
+          flex: none;
+          display: flex;
+          height: 43px;
+          justify-content: space-around;
+          align-items: center;
+          text-transform: none;
+          &:first-of-type {
+            border-left: none;
+          }
+          &.active {
+            color: $component-header-active-font-color;
+            border-bottom: 2px solid #26a69a;
+            background: $trade-ui-button-selected-bg-color;
+            // padding-bottom: 18px;
+          }
+          &.link:not(.active) {
+            color: $component-header-inactive-font-color;
+            font-weight: $light;
+            letter-spacing: 0.25px;
+            cursor: pointer;
+          }
+          &.responsive-menu-tabs-icon-container {
+            justify-content: flex-end;
+            padding-right: .35em;
+          }
+        }
+      }
+      .responsive-menu-tabs-icon {
+        padding: 0 5px;
+        cursor: pointer;
+      }
+      .responsive-tabs-menu-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        position: absolute;
+        top: 35px;
+        right: 6px;
+        .arrow-up {
+          border-bottom: 8px solid $responsive-menu-outline-color;
+          border-left: 8px solid transparent;
+          border-right: 8px solid transparent;
+          width: 0px;
+          margin-right: 4px;
+        }
+        .responsive-tabs-menu {
+          background-color: $responsive-menu-bg-color;
+          border: 1px solid $responsive-menu-outline-color;
+          border-radius: 5px;
+          padding: 5px;
+          text-align: right;
+          li {
+            cursor: pointer;
+            padding: 5px;
+            &:hover {
+              color: $responsive-menu-hover-font-color;
+            }
+          }
+        }
+      }
+    }
+  
+    .component-contents {
+      // height: calc(100% - 45px);
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+  }

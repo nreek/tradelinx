@@ -1,0 +1,51 @@
+.deposit-crypto {
+  .deposit-crypto-row {
+    display: grid;
+    grid-template-columns: 85px 1fr;
+    padding: 20px;
+    .row-title {
+      text-transform: uppercase;
+    }
+  }
+  .crypto-product {
+    align-items: center;
+    .crypto-product-name {
+      @include flex(center, flex-start);
+      text-transform: uppercase;
+      img::after{
+        font-weight: 700;
+        font-family: 'Font Awesome 5 Pro';
+        content: '\f85c';
+      }
+      .currency-icon {
+        margin-right: 5px;
+      }
+    }
+  }
+  .crypto-address-text-code {
+    p, &:not(:last-child) {
+      margin-bottom: 5px;
+    }
+  }
+  .crypto-address-qr-code-image {
+    canvas, &:not(:last-child) {
+      margin-bottom: 5px;
+    }
+    .placeholder {
+      i {
+        filter: invert(0.5);
+      }
+      @include flex(center, center);
+      height: 80px;
+      width: 80px;
+      font-size: 30px;
+      background: #FFFFFF;
+    }
+  }
+  .loader-container {
+    @include flex(center, center);
+    font-size: 60px;
+    height: 50%;
+    width: 100%;
+  }
+}

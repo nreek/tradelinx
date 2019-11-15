@@ -1,0 +1,39 @@
+@import './marketing-theme';
+
+#page404 {
+  min-height: inherit;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .content {
+    width: 100%;
+    text-align: center;
+
+    h2 {
+      font-size: 30px;
+      color: $page404-header-color;
+    }
+
+    h1 {
+      font-size: 140px;
+      color: $page404-header-color;
+      margin-bottom: 140px;
+    }
+  }
+
+  #footer {
+    position: absolute;
+    bottom: 0;
+
+    .footer-content-wrapper {
+      max-width: 100%;
+    }
+  }
+
+  .nav {
+    top: 0;
+    position: fixed;
+  }
+}
+

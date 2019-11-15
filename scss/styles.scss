@@ -1,0 +1,520 @@
+@import 'reset.scss';
+@import 'global-theme.scss';
+@import 'themes.scss';
+@import './standard-ui/standard-ui.scss';
+
+* {
+  box-sizing: border-box;
+}
+
+.app {
+  min-height: 100vh;
+  font-family: $font-family;
+  font-weight: $light;
+  font-size: 16px;
+}
+
+h1 {
+  // For titles, important info
+  font-size: 14px;
+  font-weight: $bold;
+}
+
+h2 {
+  // For sub-titles, info
+  font-size: 12px;
+  font-weight: $bold;
+}
+
+h3 {
+  // For titles in text copy
+  font-size: 12px;
+  font-weight: $regular;
+}
+
+h4 {
+  // For buttons and tabs
+  font-size: 11px;
+  font-weight: $bold;
+}
+
+label {
+  font-size: 12px;
+  font-weight: $bold;
+}
+
+p {
+  // For text copy
+  font-size: 12px;
+  font-weight: $light;
+}
+
+a {
+  @include themify($themes) {
+    color: themed('textColor');
+  }
+  font-size: 10px;
+  text-decoration: none;
+  font-weight: $regular;
+  cursor: pointer;
+  &:hover {
+    color: $light-color-3;
+  }
+}
+
+.up {
+  @include themify($themes) {
+    color: themed('positiveColor');
+  }
+}
+.down {
+  @include themify($themes) {
+    color: themed('negativeColor');
+  }
+}
+
+input {
+  @include themify($themes) {
+    color: themed('textColor');
+    border-color: themed('inputBorderColor');
+    background: themed('inputBackgroundColor');
+    &:focus {
+      border-color: themed('inputFocusBorderColor');
+      outline: none;
+    }
+  }
+  border: 0.5px solid;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  padding: 5px;
+}
+
+.select {
+  select {
+    @extend input;
+    @extend p;
+    width: 100%;
+    height: 24px;
+  }
+}
+
+.component {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  @include themify($themes) {
+    background: themed('componentBackgroundColor');
+    border-radius: themed('componentBorderRadius');
+  }
+  .component-header {
+    @include themify($themes) {
+      background: themed('componentHeaderBackgroundColor');
+      color: themed('componentHeaderTextColor');
+      border-radius: themed('componentBorderRadius') themed('componentBorderRadius') 0px 0px;
+    }
+    padding: 15px 20px;
+    text-transform: uppercase;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    @media screen and (max-width: $medium-screen-width) {
+      text-align: center;
+      z-index: 5;
+    }
+  }
+  .component-content {
+    flex: 1;
+    @media screen and (max-width: $medium-screen-width) {
+      @include themify($themes) {
+        background: themed('componentBackgroundColor');
+      }
+    }
+  }
+  @media screen and (max-width: $medium-screen-width) {
+    box-shadow: none;
+  }
+}
+
+.block {
+  @include themify($themes) {
+    background: themed('blockBackgroundColor');
+    border-radius: themed('blockBorderRadius');
+  }
+  border-left: 5px solid;
+  border-color: transparent;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.06);
+
+  &:hover {
+    @include themify($themes) {
+      background: themed('blockHoverBackgroundColor');
+    }
+  }
+  &.active {
+    @include themify($themes) {
+      border-color: themed('blockActiveBorderColor');
+    }
+  }
+
+  .block-segment {
+    &:not(:last-of-type) {
+      border-right: 1px solid;
+      @include themify($themes) {
+        border-color: themed('separatorColorLight');
+      }
+    }
+  }
+}
+
+.tab {
+  padding: 5px;
+  @include themify($themes) {
+    background: themed('tagBackgroundColor');
+  }
+  cursor: pointer;
+  &.active {
+    @include themify($themes) {
+      background: themed('tagActiveBackgroundColor');
+      color: themed('tagActiveTextColor');
+    }
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    cursor: default;
+  }
+  &:hover:not(.active) {
+    @include themify($themes) {
+      color: themed('tagHoverTextColor');
+    }
+  }
+}
+
+button.button,
+button.save {
+  @include themify($themes) {
+    background: themed('buttonColor');
+    color: themed('buttonTextColor');
+  }
+  border: none;
+  padding: 5px;
+  font-size: 10px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.25s;
+  outline: none;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+
+  &:hover {
+    @include themify($themes) {
+      background: themed('buttonHoverColor');
+    }
+  }
+  &:active {
+    @include themify($themes) {
+      background: themed('buttonActiveColor');
+    }
+    -webkit-box-shadow: inset 3px -3px 15px 0px rgba(71, 71, 71, 0.26);
+    -moz-box-shadow: inset 3px -3px 15px 0px rgba(71, 71, 71, 0.26);
+    box-shadow: inset 3px -3px 15px 0px rgba(71, 71, 71, 0.26);
+  }
+  &:disabled {
+    @include themify($themes) {
+      background: themed('buttonDisabledColor');
+      color: themed('buttonDisabledTextColor');
+    }
+    cursor: not-allowed;
+  }
+}
+
+button.save {
+  width: 60px;
+}
+
+// for text/links that want to look like buttons, but without the button look
+.secondary-button {
+  @extend a;
+  @include themify($themes) {
+    color: themed('buttonColor');
+    &:hover {
+      color: themed('buttonHoverColor');
+    }
+    &:active {
+      color: themed('buttonActiveColor');
+    }
+  }
+}
+
+table.table {
+  display: table;
+  width: 100%;
+  thead.table-header {
+    display: table-header-group;
+    font-size: 14px;
+    min-width: 0;
+    tr.row {
+      th.header-cell {
+        font-size: 13px;
+        text-align: center;
+        line-height: 1.1em;
+        padding: 10px 0;
+        vertical-align: middle;
+        border-bottom: 1px solid white;
+      }
+    }
+  }
+  tbody.table-body {
+    font-size: 14px;
+    tr.row {
+      td.cell {
+        vertical-align: middle;
+        padding: 10px 3px;
+      }
+    }
+  }
+}
+
+.accordion {
+  button.accordion-button {
+    width: 100%;
+    padding: 17px 30px;
+    text-align: left;
+    font-size: 15.2px;
+    background: $dark-color-2;
+    color: $light-color-3;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.4s;
+    &:hover {
+      background: $dark-color-1;
+      color: $light-color-1;
+      border: none;
+    }
+    &.focus {
+      outline: none;
+    }
+  }
+}
+
+.margin-right5 {
+  margin-right: 5px !important;
+}
+
+.error-boundary {
+  background: $dark-color-2;
+  padding: 20px;
+  h2.error-title {
+    font-size: 26px;
+    color: $light-color-3 !important;
+    .error-icon {
+      color: $error-color;
+      animation: pulse 1s infinite alternate;
+      @keyframes pulse {
+        0% {
+          color: $error-color;
+        }
+        80% {
+          color: $error-color;
+          text-shadow: none;
+        }
+        // 90% { color: red; text-shadow: 0px 0px 5px red; }
+        100% {
+          color: red;
+          text-shadow: 0px 0px 5px red;
+        }
+      }
+    }
+  }
+  .error-details {
+    font-size: 13px;
+    white-space: pre-wrap;
+  }
+}
+
+.error-message {
+  @include themify($themes) {
+    color: themed('negativeColor');
+  }
+}
+.success-message {
+  @include themify($themes) {
+    color: themed('positiveColor');
+  }
+}
+
+progress {
+  border-radius: 15px;
+}
+progress::-webkit-progress-bar {
+  border-radius: 15px;
+}
+progress::-webkit-progress-value {
+  border-radius: 15px;
+}
+progress::-moz-progress-bar {
+  border-radius: 15px;
+}
+
+.currency-icon {
+  height: 15px;
+  width: 15px;
+  @include themify($themes) {
+    filter: themed('cryptoIconColor');
+  }
+}
+
+// Custom checkbox
+
+.checkbox-container {
+  @include themify($themes) {
+    border-color: themed('inputBorderColor');
+  }
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .checkbox-label {
+    padding-left: 25px;
+    font-weight: 300;
+  }
+  .checkbox-custom {
+    position: absolute;
+    height: 12px;
+    width: 12px;
+    background-color: transparent;
+    border: 2px solid;
+    border-radius: 2px;
+  }
+  .checkbox-custom::after {
+    position: absolute;
+    content: '';
+    height: 0px;
+    width: 0px;
+    background-color: transparent;
+    border: 2px solid;
+
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(0deg) scale(0);
+    -ms-transform: rotate(0deg) scale(0);
+    transform: rotate(0deg) scale(0);
+    opacity: 1;
+  }
+  input:checked ~ .checkbox-custom {
+    -webkit-transform: rotate(0deg) scale(1);
+    -ms-transform: rotate(0deg) scale(1);
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+    @include themify($themes) {
+      border-color: themed('checkboxActive');
+      background-color: themed('checkboxActive');
+    }
+    border: 2px solid;
+  }
+  input:checked ~ .checkbox-custom::after {
+    position: absolute;
+    content: '';
+    height: 5px;
+    width: 3px;
+    left: 1.5px;
+    top: 0px;
+    background-color: transparent;
+    border: 1px solid $light-light-color-1;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg) scale(1);
+    -ms-transform: rotate(45deg) scale(1);
+    transform: rotate(45deg) scale(1);
+    opacity: 1;
+  }
+}
+
+// Perfect Scrollbars
+.scrollbar-container {
+  .ps__rail-y {
+    width: 10px;
+    &:hover,
+    &.ps--clicking {
+      @include themify($themes) {
+        background-color: themed('scrollbarTrackColor');
+      }
+    }
+  }
+  .ps__rail-x {
+    height: 10px;
+    &:hover,
+    &.ps--clicking {
+      @include themify($themes) {
+        background-color: themed('scrollbarTrackColor');
+      }
+    }
+  }
+  .ps__thumb-y {
+    width: 2px;
+    right: 0px;
+    @include themify($themes) {
+      background-color: themed('scrollbarThumbColor');
+      border-radius: themed('scrollbarThumbBorderRadius');
+    }
+  }
+  .ps__thumb-x {
+    height: 2px;
+    bottom: 0px;
+    @include themify($themes) {
+      background-color: themed('scrollbarThumbColor');
+      border-radius: themed('scrollbarThumbBorderRadius');
+    }
+  }
+}
+
+// Spinner
+.loader-animation {
+  @include flex();
+  .lds-ring {
+    display: inline-block;
+    position: relative;
+    width: 64px;
+    height: 64px;
+  }
+  .lds-ring div {
+    display: block;
+    position: absolute;
+    width: 51px;
+    height: 51px;
+    margin: 6px;
+    border: 6px solid #fff;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    @include themify($themes) {
+      border-color: themed('chartColor') transparent transparent transparent;
+    }
+  }
+  .lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+  }
+  .lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+  }
+  .lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+  }
+  @keyframes lds-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  &.alt {
+    .lds-ring div {
+      border: 6px solid;
+      @include themify($themes) {
+        border-color: themed('spinnerColor') transparent transparent transparent;
+      }
+    }
+  }
+}
+
+
+.text-lightblue{
+  color: #ECD7FF !important;
+}
+
+.bold{
+  font-weight: bold !important;
+}

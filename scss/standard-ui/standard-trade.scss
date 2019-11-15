@@ -1,0 +1,73 @@
+@import './trade/market-overview';
+@import './trade/order-book';
+@import './trade/order-entry';
+@import './trade/orders';
+
+.trade {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 1.5fr 0.7fr;
+  grid-template-areas:
+    'market-overview order-book order-entry'
+    'market-overview orders orders';
+  grid-gap: 25px;
+  padding: 0px 25px 25px;
+  @include themify($themes) {
+    background-color: themed('backgroundColor');
+  }
+
+  // For individual component styling, refer to their separate stylesheets (imported above)
+  .market-overview {
+    grid-area: market-overview;
+  }
+
+  .order-book {
+    grid-area: order-book;
+  }
+
+  .order-entry {
+    grid-area: order-entry;
+  }
+
+  .orders {
+    grid-area: orders;
+  }
+  @media screen and (max-width: $medium-screen-width) {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-gap: 0px;
+    padding: 0px;
+    grid-template-areas:
+      'market-overview'
+      'order-book'
+      'order-entry'
+      'market-overview'
+      'orders orders';
+    @include themify($themes) {
+      background-color: themed('backgroundColor');
+    }
+
+    // For individual component styling, refer to their separate stylesheets (imported above)
+    .market-overview {
+      grid-area: market-overview;
+      height: 100%;
+      margin-bottom: 68px;
+    }
+
+    .order-book {
+      grid-area: order-book;
+      height: 100%;
+    }
+
+    .order-entry {
+      grid-area: order-entry;
+      height: 100%;
+    }
+
+    .orders {
+      grid-area: orders;
+      height: 100%;
+    }
+  }
+}

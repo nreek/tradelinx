@@ -1,0 +1,194 @@
+@import './orders/filled-orders';
+@import './orders/orders';
+
+.orders {
+  .component-content {
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    .order-select-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 30px;
+      text-align: left;
+      align-items: center;
+      @include themify($themes) {
+        border-bottom: 1px solid themed('separatorColorDark');
+      }
+      .orders-select {
+        padding-left: 15px;
+        font-size: 10px;
+        font-weight: $bold;
+        @include themify($themes) {
+          color: themed('textColor');
+        }
+        .fa-ellipsis-h {
+          display: none;
+        }
+        i {
+          margin-left: 5px;
+          font-size: 10px;
+        }
+      }
+    }
+    .order-select-open {
+      @include themify($themes) {
+        background-color: themed('componentBackgroundColor');
+        border-radius: themed('componentBorderRadius');
+      }
+      width: 100%;
+      color: black;
+      font-weight: $bold;
+      z-index: 2;
+      bottom: 0;
+      top: 31px;
+      position: absolute;
+      .drop-down-item {
+        @include themify($themes) {
+          color: themed('textColor');
+        }
+        cursor: pointer;
+        font-size: 10px;
+        font-weight: $bold;
+        margin: 10px;
+        padding: 10px;
+      }
+    }
+    #orders-table {
+      flex: 1;
+      .open-orders-container,
+      .filled-orders-container,
+      .inactive-orders-container,
+      .withdraw-status-container {
+        .component-header {
+          .component-tabs {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: 1fr;
+          }
+        }
+      }
+    }
+    .table {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      overflow: auto;
+      height: 100%;
+      @include themify($themes) {
+        border-radius: 
+          0px
+          0px
+          themed('componentBorderRadius')
+          themed('componentBorderRadius');
+      }
+      // Header & Row grid structure
+      .table-header,
+      .table-row {
+        display: grid;
+        padding: 5px 15px;
+        height: 21px;
+        &.open-orders-header,
+        &.open-orders-row {
+          grid-template-columns: repeat(7, 1fr);
+          .fa-arrow-down,
+          .fa-arrow-up {
+            transform: rotate(45deg);
+          }
+        }
+        &.filled-orders-header,
+        &.filled-orders-row {
+          grid-template-columns: repeat(5, 1fr);
+          .fa-arrow-down,
+          .fa-arrow-up {
+            transform: rotate(45deg);
+          }
+          .hidden {
+            .fa-arrow-down,
+            .fa-arrow-up {
+              visibility: hidden;
+            }
+          }
+        }
+        &.inactive-orders-header,
+        &.inactive-orders-row {
+          grid-template-columns: repeat(4, 1fr);
+          .fa-arrow-down,
+          .fa-arrow-up {
+            transform: rotate(45deg);
+          }
+        }
+        &.withdraw-status-header,
+        &.withdraw-status-row {
+          grid-template-columns: repeat(6, 1fr);
+          min-width: 600px;
+          .fa-arrow-down,
+          .fa-arrow-up {
+            transform: rotate(45deg);
+          }
+        }
+        &.trade-reports-header,
+        &.trade-reports-row {
+          grid-template-columns: repeat(9, 1fr);
+          .fa-arrow-down,
+          .fa-arrow-up {
+            transform: rotate(45deg);
+          }
+        }
+      }
+      // Header & Row Styling
+      .table-header {
+        font-size: 10px;
+        box-sizing: border-box;
+        span {
+          font-weight: bold;
+          text-transform: uppercase;
+        }
+      }
+      .table-rows {
+        flex: 1;
+        overflow-y: auto;
+        overflow-x: hidden;
+        height: 10px;
+        font-size: 10px;
+        @include themify($themes) {
+          border-top: 1px solid themed('separatorColorDark');
+        }
+        // .scrollbar-container {
+        //   max-height: 112px;
+        // }
+        &.withdraw-status-rows {
+          min-width: 600px;
+        }
+        .table-row {
+          &:nth-of-type(odd) {
+            @include themify($themes) {
+              background: themed('alternateRowColor');
+            }
+          }
+          span {
+            text-transform: uppercase;
+            padding: 0px 2.5px;
+            font-size: 10px;
+          }
+          .buy {
+            @include themify($themes) {
+              color: themed('positiveColor');
+            }
+          }
+          .sell {
+            @include themify($themes) {
+              color: themed('negativeColor');
+            }
+          }
+          .open-orders-actions,
+          .withdraw-status-actions,
+          .trade-reports-actions {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}

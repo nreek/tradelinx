@@ -1,0 +1,28 @@
+.languages-container {
+    position: relative;
+    .dropdown-button {
+        cursor: pointer;
+    }
+    .dropdown-list {
+        padding: 6px 12px;
+        border-radius: 10px;
+        width: 150px;
+        z-index: 10;
+        position: absolute;
+        background-color: $lang-dropdown-bg;
+        border: 1px solid $lang-dropdown-border-color;
+        box-shadow: 3px 3px 3px $lang-dropdown-box-shadow-color;
+
+        .language-item {
+            width: 100%;
+            cursor: pointer;
+
+            &.active {
+                a {
+                    color: $lang-dropdown-link-active-color;
+                }
+            }
+        }
+    
+    }
+}

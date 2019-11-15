@@ -1,0 +1,90 @@
+.personal-details.component {
+  margin-bottom: 85px;
+  .kyc-form {
+    padding: 20px 40px;
+    .kyc-form-fields {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-areas:
+        'first-name middle-name last-name'
+        'address address address'
+        'city city city'
+        'state country country'
+        'postal phone dob';
+      grid-column-gap: 15px;
+      grid-row-gap: 20px;
+      margin-bottom: 20px;
+      @media screen and (max-width: $medium-screen-width) {
+        grid-template-areas:
+          'first-name first-name first-name'
+          'middle-name middle-name middle-name'
+          'last-name last-name last-name'
+          'address address address'
+          'city city city'
+          'state country country'
+          'postal postal postal'
+          'phone phone phone'
+          'dob dob dob';
+      }
+      input,
+      .react-datepicker-wrapper {
+        width: 100%;
+      }
+      .field-label {
+        @extend h2;
+        text-transform: uppercase;
+        margin: 5px 0px;
+      }
+      .field-content {
+        position: relative;
+        .error-icon {
+          position: absolute;
+          right: 5px;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+      .given-name {
+        grid-area: first-name;
+      }
+      .middle-name {
+        grid-area: middle-name;
+      }
+      .surname {
+        grid-area: last-name;
+      }
+      .phone-number {
+        grid-area: phone;
+      }
+      .date-of-birth {
+        grid-area: dob;
+      }
+      .country {
+        grid-area: country;
+      }
+      .state-province {
+        grid-area: state;
+      }
+      .city {
+        grid-area: city;
+      }
+      .street-address {
+        grid-area: address;
+      }
+      .postal-code {
+        grid-area: postal;
+      }
+    }
+  }
+  .loader-animation {
+    @include flex;
+    padding: 40px;
+  }
+  .verification-pending {
+    padding: 10px 40px;
+    h2 {
+      text-transform: uppercase;
+      margin: 10px 0px;
+    }
+  }
+}

@@ -1,0 +1,98 @@
+@import 'global-theme';
+
+
+$marketing-font-color: $dark-color-3;
+$marketing-font-family: 'Montserrat', sans-serif;
+$marketing-gradient-bottom: linear-gradient(to bottom, $dark-color-5, $dark-color-6);
+$marketing-gradient-bg-bottom: linear-gradient(to bottom, $dark-color-5, $dark-color-6);
+$marketing-gradient-bg-right: linear-gradient(to right, $dark-color-5, $dark-color-6);
+
+$splash-hero-banner-wrapper-bg: url('../images/splash-hero-banner-bg-img.svg');
+$marketing-modal-bg: #0000008c;
+
+// Responsive Breakpoints
+$xsmall-min-width: 415px;
+$medium-min-width: 795px;
+$large-min-width: 1111px;
+$ex-large-min-width: 1500px;
+$xxx-large-min-width: 1850px;
+$xxxx-large-min-width: 2000px;
+
+
+// MAIN COLORS
+$main-bg-color-dark: $dark-color-4;
+$main-bg-color-light: $light-color-1;
+
+// BUTTON COLORS
+$button-text-color-light: $light-color-1;
+$button-bg-color-light: #553d6a;
+$button-border-color-light: transparent;
+
+$button-bg-color-dark: $dark-color-3;
+
+$button-text-color-alt: $brand-color-primary;
+$button-bg-color-alt: $brand-color-primary;
+
+// NAV COLORS
+$nav-item-color-light: $light-color-1;
+$nav-item-color-alt: $brand-color-primary;
+
+// TICKER COLORS
+$ticker-text-light: $light-color-1;
+
+$lang-dropdown-bg: $dark-color-2;
+$lang-dropdown-border-color: $light-color-3;
+$lang-dropdown-box-shadow-color: rgba(12, 12, 20, 0.75);
+$lang-dropdown-link-active-color: $brand-color-primary;
+
+
+// SIGNUP/LOGIN MODAL COLORS
+$input-cursor-color: $brand-color-primary;
+$input-text-color-light: $light-color-1;
+$input-border-color-light: $light-color-1;
+
+$input-autofill-color: $default-font-color;
+$input-autofill-bg-color: transparent;
+$input-autofill-border-color: $light-color-3;
+
+$cta-modal-select-color: $light-color-1;
+$cta-modal-select-bg-color: none;
+$cta-modal-select-border-color: $light-color-1;
+
+$cta-modal-text-link-color: $brand-color-primary;
+$cta-modal-text-link-hover-color: $light-color-1;
+$cta-modal-button-disabled-bg-color: $light-color-3;
+$cta-modal-loading-icon-bg-color: $dark-color-1;
+$cta-modal-loading-icon-color: $brand-color-primary;
+$show-hide-eye-color: #757575;
+
+
+// BUY-CRYPTO STYLES
+$buycrypto-bg-color-alt: $brand-color-primary;
+$buycrypto-bg-color-light: $light-color-1;
+$buycrypto-bg-color-dark: $dark-color-3;
+$buycrypto-text-color-light: $light-color-1;
+$buycrypto-text-color-dark: $dark-color-3;
+
+
+//Feature list
+$feature-list-bg-color: $light-color-1;
+$feature-list-box-shadow: #999999;
+
+// ABOUT
+$about-bg-color-light: $light-color-1;
+$about-text-color-dark: $dark-color-3;
+
+// Policy Views
+$policy-page-title: $dark-color-3;
+$policy-blurb-header: $dark-color-3;
+$policy-blurb-content: $dark-color-3;
+
+
+// FOOTER
+$footer-text-color-light: $light-color-1;
+$footer-text-color-alt: $brand-color-primary;
+
+
+// PAGE 404
+$page404-header-color: $light-color-1;

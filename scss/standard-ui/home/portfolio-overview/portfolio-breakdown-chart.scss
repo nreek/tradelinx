@@ -1,0 +1,86 @@
+.portfolio-breakdown-chart-container {
+  display: flex;
+  align-items: center;
+  .portfolio-breakdown-stats {
+    padding-left: 15px;
+    line-height: 15px;
+    .currency-label {
+      margin: 5px 0px;
+      img::after{
+        font-weight: 700;
+        font-family: 'Font Awesome 5 Pro';
+        content: '\f85c';
+      }
+      @include flex(center, flex-start);
+      .currency-icon {
+        margin-right: 5px;
+      }
+    }
+    .portfolio-percentage {
+      @include themify($themes) {
+        color: themed('chartColor');
+      }
+      position: relative;
+      &::before {
+        content: '';
+        position: absolute;
+        left: -20px;
+        top: 7px;
+        height: 2px;
+        width: 15px;
+        @include themify($themes) {
+          background: themed('chartColor');
+        }
+      }
+    }
+  }
+  #portfolio-breakdown-chart {
+    width: 50%;
+    height: 150px;
+    $colors:
+      #555555,
+      #666666,
+      #777777,
+      #888888,
+      #999999,
+      #AAAAAA,
+      #BBBBBB,
+      #CCCCCC,
+      #D0D0D0,
+      #DDDDDD,
+      #EEEEEE;
+
+    @for $i from 1 through length($colors) {
+      $color: nth($colors, $i);
+      .highcharts-color-#{$i - 1} {
+        fill: $color;
+        // stroke: $color;
+      }
+    }
+
+    .highcharts-background {
+      fill: transparent;
+    }
+
+    .highcharts-point {
+      stroke: transparent;
+      stroke-width: 0px;
+      cursor: pointer;
+    }
+  
+    .highcharts-pie-series .highcharts-point-hover {
+      @include themify($themes) {
+        fill: themed('chartColorSubdued');
+      }
+      fill-opacity: 0.75;
+      transition: fill-opacity 50ms;
+    }
+    .highcharts-pie-series .highcharts-point-select {
+      @include themify($themes) {
+        fill: themed('chartColor');
+      }
+      fill-opacity: 0.75;
+      transition: fill-opacity 50ms;
+    }
+  }
+}

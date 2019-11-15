@@ -1,0 +1,164 @@
+@import 'global-theme';
+
+
+$white: #fff;
+// Common Element Styles
+$highlight-color: rgba(white, 0.25);
+$active-font-color: $light-color-1;
+$hover-font-color: $light-color-1;
+
+// BUTTON COLORS
+$button-font-color: $default-font-color;
+$button-bg-color: $brand-color-primary;
+$button-border-color: $brand-color-primary;
+$button-hover-bg-color: lighten($brand-color-primary, 10%);
+$button-hover-font-color: $dark-color-2;
+$button-active-bg-color: lighten($brand-color-primary, 2%);
+$button-disabled-bg-color: $highlight-color;
+$button-disabled-border-color: transparent;
+$button-disabled-font-color: $dark-color-2;
+$button-focus-color: $brand-color-primary;
+$button-focus-box-shadow-color: $brand-color-primary;
+
+$alternate-row-color: rgba($dark-color-1, 0.75);
+
+$table-border-color: $light-color-2;
+$table-body-text-color: $light-color-3;
+
+$input-bg-color: transparent;
+$input-font-color: $default-font-color;
+$input-border-color: $light-color-3;
+$input-focus-color: $light-color-1;
+
+$select-focus-color: $light-color-1;
+
+
+$component-bg-color: $dark-color-2;
+$component-header-bg-color: $dark-color-1;
+$component-header-tab-divider-color: $light-color-3;
+$component-header-active-font-color: $active-font-color;
+$component-header-inactive-font-color: $default-font-color;
+
+$responsive-menu-bg-color: $dark-color-3;
+$responsive-menu-outline-color: $light-color-2;
+$responsive-menu-hover-font-color: $hover-font-color;
+
+$modal-bg-color: $component-bg-color;
+
+
+$paginator-active-font-color: $active-font-color;
+
+$trade-bg-color: $dark-color-7;
+$trade-font-color: $default-font-color;
+$trade-font-family: 'Lato', sans-serif;
+
+$trade-ui-input-bg-color: $input-bg-color;
+$trade-ui-input-font-color: $input-font-color;
+$trade-ui-input-border-color: $input-border-color;
+$trade-ui-input-focus-color: $input-focus-color;
+
+$trade-ui-select-focus-color: $select-focus-color;
+
+$trade-ui-button-bg-color: transparent;
+$trade-ui-button-font-color: $light-color-1;
+$trade-ui-button-border-color: $button-border-color;
+$trade-ui-button-hover-bg-color: $button-hover-bg-color;
+$trade-ui-button-hover-font-color: $button-hover-font-color;
+$trade-ui-button-disabled-bg-color: $button-disabled-bg-color;
+$trade-ui-button-disabled-border-color: $button-disabled-border-color;
+$trade-ui-button-disabled-font-color: $button-disabled-font-color;
+$trade-ui-button-disabled-font-color: $button-disabled-font-color;
+$trade-ui-button-focus-box-shadow-color: $button-focus-box-shadow-color;
+$trade-ui-button-border-color: $button-border-color;
+$trade-ui-button-selected-bg-color: $alternate-row-color;
+
+
+// Individual Component Variables
+$header-bg-color: $dark-color-2;
+$header-font-color: $light-color-1;
+$header-logo-url: url('../images/logos/company-logo-alt.png');
+$header-logo-small-url: url('../images/logos/company-logo-small-alt.png');
+$header-ticker-ask-color: $trade-red;
+$header-ticker-bid-color: $trade-green;
+$header-ticker-negative-value-color: $trade-red;
+$header-ticker-font-color: $default-font-color;
+
+
+// Trade UI Sidebar styling 
+$sidebar-bg-color: $dark-color-1;
+$sidebar-header-bg-color: $header-bg-color;
+$sidebar-border-color: $light-color-3;
+$sidebar-option-active-color: $brand-color-primary;
+$sidebar-option-hover-highlight: $highlight-color;
+$sidebar-width: 200px;
+
+
+$mobile-nav-active-font-color: $active-font-color;
+$mobile-nav-active-border-bottom-color: $button-border-color;
+
+$order-book-bid-price-font-color: $trade-green;
+$order-book-highest-bid-price-bg: $trade-green;
+$order-book-ask-price-font-color: $trade-red;
+$order-book-lowest-ask-price-bg: $trade-red;
+$order-book-row-hover-highlight: $highlight-color;
+$order-book-alternate-row-color: $alternate-row-color;
+$order-book-table-border-color: $table-border-color;
+
+$instrument-select-percent-up-font-color: $trade-green;
+$instrument-select-percent-down-font-color: $trade-red;
+$instrument-select-input-bg-color: $input-bg-color;
+$instrument-select-input-font-color: $input-font-color;
+$instrument-select-input-border-color: $input-border-color;
+$instrument-select-alternate-row-color: $alternate-row-color;
+$instrument-select-row-hover-highlight: $highlight-color;
+$instrument-selected-color: $active-font-color;
+
+$dropdown-instrument-select-bg-color: $dark-color-2;
+$dropdown-instrument-select-border-color: $light-color-3;
+$dropdown-instrument-select-shadow-color: rgba($dark-color-3, 0.75);
+
+$order-table-alternate-row-color: $alternate-row-color;
+$order-table-row-hover-highlight: $highlight-color;
+$order-table-border-color: $table-border-color;
+$order-table-buy-color: $trade-green;
+$order-table-sell-color: $trade-red;
+
+$recent-trades-alternate-row-color: $alternate-row-color;
+$recent-trades-up-color: $trade-green;
+$recent-trades-down-color: $trade-red;
+$recent-trades-table-border-color: $table-border-color;
+$recent-trades-row-hover-highlight: $highlight-color;
+
+$order-entry-divider-color: $default-font-color;
+$order-entry-selected-font-color: $light-color-1;
+
+$order-entry-selected-border-color: $brand-color-primary;
+
+$account-balance-header-border-color: $default-font-color;
+
+$depth-chart-colors: $trade-green $trade-red;
+$depth-chart-bg-color: $component-bg-color;
+$depth-chart-header-font-color: $component-header-active-font-color;
+
+$affiliate-font-color: $default-font-color;
+$affiliate-url-bg-color: $dark-color-1;
+$affiliate-url-font-color: $light-color-1;
+$affiliate-input-bg-color: $light-color-3;
+$affiliate-input-font-color: $dark-color-2;
+$affiliate-input-border-color: $light-color-1;
+$affiliate-submit-button-color: $trade-green;
+$affiliate-cancel-button-color: $trade-red;
+$affiliate-copied-confirm-color: $brand-color-primary;
+$affiliate-copied-check-color: $default-font-color;
+
+$reports-tabs-divider-color: $light-color-3;
+$reports-container-text-color: $dark-color-4;
+$reports-tabs-active-font-color: $active-font-color;
+$reports-table-header-font-color: $light-color-1;
+$reports-table-bottom-border-color: $dark-color-3;
+$reports-actions-hover-font-color: $hover-font-color;
+
+$component-box-shadow-color: $dark-color-4;
+
+$modal-bg_color: $light-color-1;
+$modal-close-button: $dark-color-4;

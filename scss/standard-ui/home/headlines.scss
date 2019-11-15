@@ -1,0 +1,62 @@
+.headlines.component {
+  .component-content {
+    height: 100px;
+    padding: 0px 0px 15px;
+  }
+  .article {
+    display: grid;
+    grid-template-columns: 70px minmax(0, 1fr);
+    grid-template-rows: 15px 1fr 15px;
+    grid-template-areas:
+      'image title'
+      'image body'
+      'image date';
+    grid-row-gap: 3px;
+    grid-column-gap: 10px;
+    padding: 15px 20px;
+
+    &:not(:last-of-type) {
+      border-bottom: 1px solid;
+      @include themify($themes) {
+        border-color: themed('separatorColorDark');
+      }
+    }
+
+    .image {
+      grid-area: image;
+      img {
+        height: 70px;
+        width: 70px;
+      }
+    }
+    .title {
+      grid-area: title;
+      h3 {
+        display: flex;
+      }
+      a {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+    .body {
+      grid-area: body;
+    }
+    .date {
+      grid-area: date;
+      text-align: right;
+      align-self: flex-end;
+    }
+  }
+
+  .loading-spinner {
+    @include flex(center, center, column);
+    height: 100%;
+    width: 100%;
+    i {
+      font-size: 40px;
+      margin: 10px;
+    }
+  }
+}

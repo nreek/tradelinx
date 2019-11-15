@@ -1,0 +1,245 @@
+.coin-info-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 60px 100px 1fr;
+  grid-template-areas:
+    'price outlook volume'
+    'project project project'
+    'about about about';
+  @media screen and (max-width: $medium-screen-width) {
+    display: block;
+    
+
+    .instrument-stats {
+      grid-area: 'instrument-stats';
+    }
+  }
+
+  & > div {
+    @include themify($themes) {
+      border-color: themed('separatorColorDark');
+    }
+  }
+
+  .coin-info-product-container,
+  .coin-info-price-container,
+  .coin-info-team-project-eco-container,
+  .coin-info-outlook-container,
+  .coin-info-market-data-container,
+  .coin-info-volume-container,
+  .coin-info-more-info {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  }
+  .coin-info-product-container {
+    grid-area: product;
+    border-bottom: 1px solid;
+    border-right: 1px solid;
+    display: flex;
+    align-items: center;
+    h2 {
+      padding-left: 5px;
+      padding-right: 10px;
+      font-size: 10px;
+      margin: auto;
+      img {
+        margin-bottom: -4px;
+        margin-right: 5px;
+      }
+    }
+  }
+
+  .coin-info-price-container {
+    grid-area: price;
+    padding-left: 10px;
+    font-size: 10px;
+    border-bottom: 1px solid;
+    h2 {
+      margin: auto;
+      text-transform: uppercase;
+    }
+    span {
+      padding-left: 5px;
+    }
+    @include themify($themes) {
+      .price-span {
+        color: themed('positiveColor');
+        padding-left: 5px;
+      }
+    }
+  }
+
+  .coin-info-no-bar-data {
+    grid-area: project;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 7;
+    @include themify($themes) {
+      background-color: themed('componentBackgroundColor');
+    }
+    h3 {
+      padding-left: 5px;
+    }
+  }
+
+  .loader-animation {
+    grid-area: project;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid;
+  }
+
+  .coin-info-team-project-eco-container {
+    grid-area: project;
+    display: flex;
+    font-size: 8px;
+    text-align: left;
+    padding: 0px;
+    padding-left: 5px;
+    border-bottom: 1px solid;
+    .highcharts-background {
+      @include themify($themes) {
+        fill: themed('componentBackgroundColor');
+      }
+    }
+    .highcharts-color-0 {
+      @include themify($themes) {
+        fill: themed('chartColor');
+        stroke: themed('chartColor');
+      }
+    }
+    .highcharts-grid {
+      display: none;
+    }
+    .highcharts-axis-line {
+      display: none;
+    }
+    .highcharts-axis-labels {
+      font-size: 8px;
+      font-weight: bold;
+      text-align: left;
+      @include themify($themes) {
+        fill: themed('textColor');
+      }
+    }
+  }
+
+  .coin-info-outlook-container {
+    grid-area: outlook;
+    border-bottom: 1px solid;
+    @include themify($themes) {
+      fill: themed('componentBackgroundColor');
+    }
+    h2 {
+      margin: auto;
+      text-transform: uppercase;
+    }
+  }
+
+  .coin-info-volume-container {
+    grid-area: volume;
+    font-size: 10px;
+    border-bottom: 1px solid;
+    h2 {
+      margin: auto;
+      text-transform: uppercase;
+    }
+    span {
+      padding-left: 5px;
+    }
+    .volume-span {
+      padding-left: 5px;
+      @include themify($themes) {
+        color: themed('tagActiveTextColor');
+      }
+    }
+  }
+
+  .coin-info-market-data-container {
+    grid-area: market;
+  }
+
+  .coin-info-popularity-container {
+    grid-area: popularity;
+    border-bottom: 1px solid;
+    padding: 10px;
+    .highcharts-background {
+      fill: transparent;
+    }
+    .highcharts-grid-line {
+      @include themify($themes) {
+        stroke: themed('separatorColorDark');
+      }
+    }
+    .highcharts-axis-line {
+      @include themify($themes) {
+        stroke: themed('separatorColorDark');
+      }
+    }
+    .highcharts-axis-labels {
+      font-size: 8px;
+      @include themify($themes) {
+        fill: themed('textColor');
+      }
+    }
+    .highcharts-color-0 {
+      @include themify($themes) {
+        stroke: themed('chartColor');
+      }
+      fill-opacity: 1;
+      fill: url(#gradient-0);
+    }
+    /* Define the stop colors */
+    #gradient-0 stop {
+      @include themify($themes) {
+        stop-color: themed('chartColor');
+      }
+    }
+    #gradient-0 stop[offset='0'] {
+      stop-opacity: 0.75;
+    }
+    #gradient-0 stop[offset='1'] {
+      stop-opacity: 0;
+    }
+
+    .highcharts-area {
+      fill-opacity: 1;
+      fill: url(#gradient-0);
+    }
+    h2 {
+      padding-top: 20px;
+      font-size: 10px;
+    }
+  }
+
+  .coin-info-about-container {
+    grid-area: about;
+    padding: 20px;
+    @media screen and (max-width: $medium-screen-width) {
+      padding: 0px 20px;
+      margin-bottom: 20px;
+    }
+    h2 {
+      text-transform: uppercase;
+    }
+    p {
+      padding-top: 10px;
+    }
+  }
+}
+
+.coin-info-more-info {
+  grid-area: more;
+  border-top: 1px solid;
+  h2 {
+    margin: auto;
+    font-weight: bold;
+    text-transform: uppercase;
+    @include themify($themes) {
+      color: themed('tagActiveTextColor');
+    }
+  }
+}
