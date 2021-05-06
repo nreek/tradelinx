@@ -30,7 +30,7 @@
     "ethereum-address": "0.0.4",
     "file-saver": "^2.0.0",
     "fs": "0.0.1-security",
-    "highcharts": "6.1.1",
+    "highcharts": "9.0.0",
     "moment": "^2.22.2",
     "multicoin-address-validator": "^0.3.10",
     "prop-types": "latest",
